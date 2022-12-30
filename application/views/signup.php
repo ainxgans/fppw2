@@ -23,8 +23,13 @@
                         <a href="index.html" class="auth-title">RPS</a>
                     </div>
                     <h3 class="auth mb-5">Sign Up<h3>
+                            <?php if (validation_errors()) : ?>
+                                <div class="alert alert-primary">
+                                    <?= validation_errors() ?>
+                                </div>
+                            <?php endif ?>
 
-                            <form action="index.html">
+                            <form action="" method="post">
                                 <div class="form-group position-relative has-icon-left mb-4">
                                     <input type="text" class="form-control form-control-xl" placeholder="Email" name="user_email" />
                                     <div class="form-control-icon">

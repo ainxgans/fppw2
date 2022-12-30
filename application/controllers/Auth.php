@@ -4,26 +4,56 @@ defined('BASEPATH') or exit('No direct script access allowed');
 // create home controller
 class Auth extends CI_Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('user_m');
+        $this->load->library('form_validation');
+    }
     // create index method
     public function index()
     {
-        // load view
-        $this->load->view('login');
+        $this->form_validation->set_rules('user_name', 'Username', 'required');
+        $this->form_validation->set_rules('user_password', 'Password', 'required');
+        if ($this->form_validation->run() == FALSE) {
+            $data['judul'] = "Login | RPS";
+            $this->load->view('login', $data);
+        } else {
+            $username = $this->input->post('user_name');
+            $password = $this->input->post('user_password');
+            $user = $this->db->get_where('users', ['user_name' => $username])->row_array();
+            if ($user) {
+                if (password_verify($password, $user['user_password'])) {
+                    $data = [
+                        'user_id' => $user['user_id'],
+                        'user_name' => $user['user_name'],
+                        'user_email' => $user['user_email']
+                    ];
+                    $this->session->set_userdata($data);
+                    redirect('Home');
+                }
+            }
+        }
     }
     public function signup()
     {
-        // load view
-        $this->load->view('signup');
-    }
-    public function proses()
-    {
-        $post = $this->input->post(null, TRUE);
-        if (isset($_POST['login'])) {
-            $this->load->model('user_m');
-            $query = $this->user_m->login($post);
-            if ($query->num_rows() > 0) {
-                redirect('Home');
-            }
+        $this->form_validation->set_rules('user_email', 'Email', 'required|valid_email');
+        $this->form_validation->set_rules('user_name', 'Username', 'required');
+        $this->form_validation->set_rules('user_password', 'Password', 'required');
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('signup');
+        } else {
+            $this->user_m->signup();
+            redirect('Auth');
         }
+    }
+    public function logout()
+    {
+        $this->session->unset_userdata('user_id');
+        $this->session->unset_userdata('user_name');
+        $this->session->unset_userdata('user_email');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">You have been logged out!</div>');
+        redirect('Auth');
     }
 }

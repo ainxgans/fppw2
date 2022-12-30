@@ -184,6 +184,8 @@
                                         <textarea name="referensi" id="referensi" class="ckeditor"></textarea>
                                     </div>
                                 </div>
+                                <h3 class=" pt-5">Rencana Pembelajaran</h3>
+                                <hr>
                             </div>
                         </form>
                     </div>

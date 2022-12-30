@@ -52,13 +52,12 @@
                 <div class="sidebar-menu">
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
-
-                        <li class="sidebar-item <?php if ($this->uri->segment(1) == "") {
+                        <li class="sidebar-item <?php if ($this->uri->segment(1) == "list") {
                                                     echo ' active';
                                                 } ?>">
-                            <a href="<?php echo base_url('/') ?>" class="sidebar-link">
-                                <i class="bi bi-grid-fill"></i>
-                                <span>Dashboard</span>
+                            <a href="<?php echo base_url('/list') ?>" class="sidebar-link">
+                                <i class="bi bi-stack"></i>
+                                <span>List RPS</span>
                             </a>
                         </li>
                         <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
@@ -69,12 +68,10 @@
                                 <span>Tambah RPS</span>
                             </a>
                         </li>
-                        <li class="sidebar-item <?php if ($this->uri->segment(1) == "list") {
-                                                    echo ' active';
-                                                } ?>">
-                            <a href="<?php echo base_url('/list') ?>" class="sidebar-link">
-                                <i class="bi bi-stack"></i>
-                                <span>List RPS</span>
+                        <li class="sidebar-item" style="position: absolute; bottom:2em; width:14.5em">
+                            <a href="<?php echo base_url('/logout') ?>" class="sidebar-link text-white" style="background-color: #dc3545">
+                                <i class="bi bi-box-arrow-left text-white"></i>
+                                <span>Logout</span>
                             </a>
                         </li>
                     </ul>
