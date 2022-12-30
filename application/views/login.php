@@ -26,13 +26,13 @@
                     <h3 class="auth mb-5">Log in.</h3>
                     <form action="<?= base_url('/auth') ?>" method="post">
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input name="user_name" type="text" class="form-control form-control-xl" placeholder="Username" />
+                            <input name="id" type="text" class="form-control form-control-xl" placeholder="ID" />
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
                         </div>
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input name="user_password" type="password" class="form-control form-control-xl" placeholder="Password" />
+                            <input name="password" type="password" class="form-control form-control-xl" placeholder="Password" />
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>

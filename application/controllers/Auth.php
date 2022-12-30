@@ -13,21 +13,21 @@ class Auth extends CI_Controller
     // create index method
     public function index()
     {
-        $this->form_validation->set_rules('user_name', 'Username', 'required');
-        $this->form_validation->set_rules('user_password', 'Password', 'required');
+        $this->form_validation->set_rules('id', 'ID', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
         if ($this->form_validation->run() == FALSE) {
             $data['judul'] = "Login | RPS";
             $this->load->view('login', $data);
         } else {
-            $username = $this->input->post('user_name');
-            $password = $this->input->post('user_password');
-            $user = $this->db->get_where('users', ['user_name' => $username])->row_array();
+            $id = $this->input->post('id');
+            $password = $this->input->post('password');
+            $user = $this->db->get_where('users', ['id' => $id])->row_array();
             if ($user) {
-                if (password_verify($password, $user['user_password'])) {
+                if (password_verify($password, $user['password'])) {
                     $data = [
-                        'user_id' => $user['user_id'],
-                        'user_name' => $user['user_name'],
-                        'user_email' => $user['user_email']
+                        'id' => $user['id'],
+                        'nama' => $user['nama'],
+                        'email' => $user['email']
                     ];
                     $this->session->set_userdata($data);
                     redirect('Home');

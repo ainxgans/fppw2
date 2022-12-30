@@ -4,10 +4,10 @@ class User_m extends CI_Model
 {
     public function login()
     {
-        $email = $this->input->post('user_email');
-        $password = $this->input->post('user_password');
-        $user = $this->db->get_where('users', ['user_email' => $email])->row_array();
-        var_dump($user);
+        $id = $this->input->post('id');
+        $password = $this->input->post('password');
+        $users = $this->db->get_where('users', ['id' => $id])->row_array();
+        var_dump($users);
         die;
     }
     public function signup()

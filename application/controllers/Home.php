@@ -10,15 +10,19 @@ class Home extends CI_Controller
     // create index method
     public function index()
     {
-        $data['user'] = $this->db->get_where('users', ['user_id' => $this->session->userdata('user_id')])->row_array();
+        $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
         $data['judul'] = "List RPS | RPS";
-        $data['rps'] = $this->Rps_m->list();
+        $data['matkul'] = $this->Rps_m->list();
         // load view
-        $this->template->load('template', 'list', $data);
+        $this->load->view('view_header.php', $data);
+        $this->load->view('list.php', $data);
+        $this->load->view('view_footer.php', $data);
     }
     public function tambah()
     {
         $data['judul'] = "Tambah RPS | RPS";
-        $this->template->load('template', 'tambah', $data);
+        $this->load->view('view_header.php', $data);
+        $this->load->view('tambah.php', $data);
+        $this->load->view('view_footer.php', $data);
     }
 }

@@ -3,6 +3,35 @@
 </div>
 <div class="page-content">
     <section class="row">
+        <div class="col-12 col-lg-9">
+            <div class="table-responsive">
+                <table class="table table-lg">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Mata Kuliah</th>
+                            <th>SKS</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <?php
+                    $no = 1;
+                    foreach ($matkul as $value) {
+                    ?>
+                        <tr>
+                            <td><?= $no ?></td>
+                            <td><?= $value['nm_matkul'] ?></td>
+                            <td><?= $value['sks'] ?></td>
+                            <td><a href="<?= base_url('tambah') ?>">Download</a></td>
+                        </tr>
+
+                    <?php
+                        $no++;
+                    }
+                    ?>
+                </table>
+            </div>
+        </div>
         <div class="col-12 col-lg-3">
             <div class="card">
                 <div class="card-body py-4 px-4">
@@ -11,8 +40,8 @@
                             <img src="assets/images/faces/1.jpg" alt="Face 1" />
                         </div>
                         <div class="ms-3 name">
-                            <h5 class="font-bold"><?= $user['user_name'] ?></h5>
-                            <h6 class="text-muted mb-0">nim</h6>
+                            <h5 class="font-bold"><?= $user['nama'] ?></h5>
+                            <h6 class="text-muted mb-0"><?= $user['id'] ?></h6>
                         </div>
                     </div>
                 </div>

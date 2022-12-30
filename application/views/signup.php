@@ -31,19 +31,25 @@
 
                             <form action="" method="post">
                                 <div class="form-group position-relative has-icon-left mb-4">
-                                    <input type="text" class="form-control form-control-xl" placeholder="Email" name="user_email" />
+                                    <input type="text" class="form-control form-control-xl" placeholder="NIK/NIM" name="id" />
                                     <div class="form-control-icon">
                                         <i class="bi bi-envelope"></i>
                                     </div>
                                 </div>
                                 <div class="form-group position-relative has-icon-left mb-4">
-                                    <input type="text" class="form-control form-control-xl" placeholder="Username" name="user_name" />
+                                    <input type="text" class="form-control form-control-xl" placeholder="Email" name="email" />
+                                    <div class="form-control-icon">
+                                        <i class="bi bi-envelope"></i>
+                                    </div>
+                                </div>
+                                <div class="form-group position-relative has-icon-left mb-4">
+                                    <input type="text" class="form-control form-control-xl" placeholder="Nama Lengkap" name="nama" />
                                     <div class="form-control-icon">
                                         <i class="bi bi-person"></i>
                                     </div>
                                 </div>
                                 <div class="form-group position-relative has-icon-left mb-4">
-                                    <input type="password" class="form-control form-control-xl" placeholder="Password" name="user_password" />
+                                    <input type="password" class="form-control form-control-xl" placeholder="Password" name="password" />
                                     <div class="form-control-icon">
                                         <i class="bi bi-shield-lock"></i>
                                     </div>
