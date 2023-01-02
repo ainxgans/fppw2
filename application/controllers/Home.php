@@ -20,6 +20,7 @@ class Home extends CI_Controller
     }
     public function tambah()
     {
+        $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
         $data['judul'] = "Tambah RPS | RPS";
         $this->load->view('view_header.php', $data);
         $this->load->view('tambah.php', $data);

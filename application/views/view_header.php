@@ -52,14 +52,16 @@
                 <div class="sidebar-menu">
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
-                        <li class="sidebar-item <?php if ($this->uri->segment(1) == "list") {
-                                                    echo ' active';
-                                                } ?>">
-                            <a href="<?php echo base_url('/list') ?>" class="sidebar-link">
-                                <i class="bi bi-stack"></i>
-                                <span>List RPS</span>
-                            </a>
-                        </li>
+                        <?php if ($user['akses'] == 2) : ?>
+                            <li class="sidebar-item <?php if ($this->uri->segment(1) == "list") {
+                                                        echo ' active';
+                                                    } ?>">
+                                <a href="<?php echo base_url('/list') ?>" class="sidebar-link">
+                                    <i class="bi bi-stack"></i>
+                                    <span>List RPS</span>
+                                </a>
+                            </li>
+                        <?php endif; ?>
                         <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
                                                     echo ' active';
                                                 } ?>">
@@ -68,11 +70,25 @@
                                 <span>Tambah RPS</span>
                             </a>
                         </li>
+
                         <li class="sidebar-item" style="position: absolute; bottom:2em; width:14.5em">
-                            <a href="<?php echo base_url('/logout') ?>" class="sidebar-link text-white" style="background-color: #dc3545">
-                                <i class="bi bi-box-arrow-left text-white"></i>
-                                <span>Logout</span>
-                            </a>
+                            <div class="card">
+                                <div class="card-body py-4 px-4">
+                                    <div class="d-flex align-items-center">
+                                        <div class="avatar avatar-xl">
+                                            <img src="assets/images/faces/1.jpg" alt="Face 1" />
+                                        </div>
+                                        <div class="ms-3 name">
+                                            <h5 class="font-bold"><?= $user['nama'] ?></h5>
+                                            <h6 class="text-muted mb-0"><?= $user['id'] ?></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="<?php echo base_url('/logout') ?>" class="sidebar-link text-white" style="background-color: #dc3545">
+                                    <i class="bi bi-box-arrow-left text-white"></i>
+                                    <span>Logout</span>
+                                </a>
+                            </div>
                         </li>
                     </ul>
                 </div>

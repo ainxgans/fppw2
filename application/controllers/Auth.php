@@ -25,12 +25,14 @@ class Auth extends CI_Controller
             if ($user) {
                 if (password_verify($password, $user['password'])) {
                     $data = [
-                        'id' => $user['id'],
-                        'nama' => $user['nama'],
-                        'email' => $user['email']
+                        'id' => $user['id']
                     ];
                     $this->session->set_userdata($data);
-                    redirect('Home');
+                    if ($user['akses'] == 1) {
+                        redirect('tambah');
+                    } else {
+                        redirect('list');
+                    }
                 }
             }
         }
@@ -50,10 +52,9 @@ class Auth extends CI_Controller
     }
     public function logout()
     {
-        $this->session->unset_userdata('user_id');
-        $this->session->unset_userdata('user_name');
+        $this->session->unset_userdata('id');
+        $this->session->unset_userdata('nama');
         $this->session->unset_userdata('user_email');
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">You have been logged out!</div>');
         redirect('Auth');
     }
 }
