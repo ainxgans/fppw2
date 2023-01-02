@@ -59,22 +59,14 @@ class Home extends CI_Controller
     }
     public function tambahMatkul()
     {
-        
     }
     public function listMatkul()
     {
-        
     }
     public function listRps()
     {
-        
     }
     public function tambahRps()
     {
-        
-    }
-    public function FunctionName(Type $var = null)
-    {
-        # code...
     }
 }

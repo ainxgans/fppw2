@@ -1,7 +1,4 @@
 <form action="" method="post">
-    <h3 class="pt-5">Tambah Dosen</h3>
-    <hr>
-
     <div class="col-md-6 col-12">
         <div class="form-group">
             <label for="id">NIK</label>

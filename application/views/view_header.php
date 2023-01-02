@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?= $judul ?></title>
+    <title><?= $judul ?> | RPS</title>
 
     <link rel="stylesheet" href="<?php echo base_url('/assets/') ?>css/main/app.css" />
     <link rel="stylesheet" href="<?php echo base_url('/assets/') ?>/css/main/app-dark.css" />
@@ -54,17 +54,34 @@
                         <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
                                                     echo ' active';
                                                 } ?>">
-                            <a href="<?php echo base_url('/Home/tambahDosen') ?>" class="sidebar-link">
-                                <i class="bi bi-file-earmark-medical-fill"></i>
-                                <span>Tambah Dosen</span>
+                            <a href="<?php echo base_url('/Admin/') ?>" class="sidebar-link">
+                                <i class="bi bi-people-fill"></i>
+                                <span>List Dosen</span>
                             </a>
                         </li>
                         <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
                                                     echo ' active';
                                                 } ?>">
-                            <a href="<?php echo base_url('/tambah') ?>" class="sidebar-link">
+                            <a href="<?php echo base_url('/Admin/tambahDosen') ?>" class="sidebar-link">
+                                <i class="bi bi-person-fill-add"></i>
+                                <span>Tambah Dosen</span>
+                            </a>
+                        </li>
+
+                        <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
+                                                    echo ' active';
+                                                } ?>">
+                            <a href="<?php echo base_url('/Admin/tambahMatkul') ?>" class="sidebar-link">
                                 <i class="bi bi-file-earmark-medical-fill"></i>
                                 <span>Tambah Matkul</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
+                                                    echo ' active';
+                                                } ?>">
+                            <a href="<?php echo base_url('/Admin/listMatkul') ?>" class="sidebar-link">
+                                <i class="bi bi-stack"></i>
+                                <span>List Matkul</span>
                             </a>
                         </li>
                         <?php if ($user['akses']) : ?>
@@ -90,8 +107,9 @@
                             <div class="card">
                                 <div class="card-body py-4 px-4">
                                     <div class="d-flex align-items-center">
-                                        <div class="avatar avatar-xl">
-                                            <img src="assets/images/faces/1.jpg" alt="Face 1" />
+                                        <div class="avatar bg-primary avatar-md">
+                                            <span class="avatar-content"><i class="bi bi-person-circle"></i>
+                                            </span>
                                         </div>
                                         <div class="ms-3 name">
                                             <h5 class="font-bold"><?= $user['nama'] ?></h5>
@@ -115,3 +133,16 @@
                     <i class="bi bi-justify fs-3"></i>
                 </a>
             </header>
+            <div class="page-title">
+                <div class="row">
+                    <div class="col-12 col-md-6 order-md-1 order-last">
+                        <h3><?= $judul ?></h3>
+                    </div>
+                </div>
+            </div>
+            <?php if ($this->session->flashdata('message')) : ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?= $this->session->flashdata('message'); ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
