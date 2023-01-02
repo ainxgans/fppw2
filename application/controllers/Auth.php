@@ -29,19 +29,23 @@ class Auth extends CI_Controller
                     ];
                     $this->session->set_userdata($data);
                     if ($user['akses'] == 1) {
-                        redirect('tambah');
+                        redirect('Admin');
+                    } elseif ($user['akses'] == 2) {
+                        redirect('Dosen');
                     } else {
-                        redirect('list');
+                        redirect('Mahasiswa');
                     }
+                } else {
+                    redirect('login');
                 }
             }
         }
     }
     public function signup()
     {
-        $this->form_validation->set_rules('user_email', 'Email', 'required|valid_email');
-        $this->form_validation->set_rules('user_name', 'Username', 'required');
-        $this->form_validation->set_rules('user_password', 'Password', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+        $this->form_validation->set_rules('name', 'Username', 'required');
+        $this->form_validation->set_rules('password', 'Password', 'required');
 
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('signup');

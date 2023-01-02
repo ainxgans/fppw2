@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><?= $judul ?></title>
 
-    <link rel="stylesheet" href="assets/extensions/quill/quill.snow.css" />
     <link rel="stylesheet" href="<?php echo base_url('/assets/') ?>css/main/app.css" />
     <link rel="stylesheet" href="<?php echo base_url('/assets/') ?>/css/main/app-dark.css" />
     <link rel="shortcut icon" href="<?php echo base_url('/assets/') ?>/images/logo/favicon.svg" type="image/x-icon" />
@@ -23,7 +22,7 @@
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo">
-                            <a href="index.html"><img src="assets/images/logo/logo.svg" alt="Logo" srcset="" /></a>
+                            <a href="index.html"></a><img src=" assets/images/amikom.png" alt="Logo" srcset="" /></a>
                         </div>
                         <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
@@ -52,7 +51,23 @@
                 <div class="sidebar-menu">
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
-                        <?php if ($user['akses'] == 2) : ?>
+                        <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
+                                                    echo ' active';
+                                                } ?>">
+                            <a href="<?php echo base_url('/Home/tambahDosen') ?>" class="sidebar-link">
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Tambah Dosen</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
+                                                    echo ' active';
+                                                } ?>">
+                            <a href="<?php echo base_url('/tambah') ?>" class="sidebar-link">
+                                <i class="bi bi-file-earmark-medical-fill"></i>
+                                <span>Tambah Matkul</span>
+                            </a>
+                        </li>
+                        <?php if ($user['akses']) : ?>
                             <li class="sidebar-item <?php if ($this->uri->segment(1) == "list") {
                                                         echo ' active';
                                                     } ?>">
