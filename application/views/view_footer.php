@@ -15,6 +15,7 @@
 </div>
 </div>
 <script src="<?php echo base_url('/assets/') ?>js/bootstrap.js"></script>
+<script src="<?php echo base_url('/assets/') ?>js/mazer.js"></script>
 <script src="<?php echo base_url('/assets/') ?>js/app.js"></script>
 <!-- <script src="assets/js/pages/dashboard.js"></script> -->
 <script src="<?php echo base_url('/assets/') ?>ckeditor/ckeditor.js"></script>

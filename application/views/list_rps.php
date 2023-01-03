@@ -11,10 +11,6 @@
                                 <th>Nama Mata Kuliah</th>
                                 <th>Semester</th>
                                 <th>SKS</th>
-                                <?php if ($user['akses'] == 1) : ?>
-                                    <th>Dosen Pengampu</th>
-                                    <th>Aksi</th>
-                                <?php endif; ?>
                                 <?php if ($user['akses'] == 2) : ?>
                                     <th>Aksi</th>
                                 <?php endif; ?>
@@ -30,9 +26,8 @@
                                 <td><?= $value['tgl_disusun'] ?></td>
                                 <td><?= $value['semester'] ?></td>
                                 <td><?= $value['sks'] ?></td>
-                                <?php if ($user['akses'] == 1) : ?>
-                                    <td><?= $value['nama'] ?></td>
-                                    <td><a href="<?= base_url('/Admin/deleteMatkul/' . $value['kode']) ?>">Hapus</a></td>
+                                <?php if ($user['akses'] == 2) : ?>
+                                    <td><a href="<?= base_url('/Dosen/detailRps/' . $value['id']) ?>">Isi detail</a></td>
                                 <?php endif; ?>
                             </tr>
 

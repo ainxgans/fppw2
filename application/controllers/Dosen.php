@@ -24,7 +24,7 @@ class Dosen extends CI_Controller
     {
         $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
         $data['judul'] = "List RPS";
-        $this->db->select('*');
+        $this->db->select('matkul.*, users.nama as nama_dosen, rps.*');
         $this->db->from('rps');
         $this->db->join('matkul', 'matkul.kode = rps.id_matkul');
         $this->db->join('users', 'users.id = rps.id_dosen');
@@ -67,5 +67,19 @@ class Dosen extends CI_Controller
             $this->Dosen_m->tambahRps($table, $isi);
             redirect('dosen/listRps');
         }
+    }
+    public function detailRps()
+    {
+        $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
+        $data['judul'] = "Detail RPS";
+        $id = $this->uri->segment(3);
+        $this->db->select('*');
+        $this->db->from('rps');
+        $this->db->join('matkul', 'matkul.kode = rps.id_matkul');
+        $this->db->where('rps.id', $id);
+        $data['rps'] = $this->db->get()->row_array();
+        $this->load->view('view_header.php', $data);
+        $this->load->view('detail_rps.php', $data);
+        $this->load->view('view_footer.php', $data);
     }
 }

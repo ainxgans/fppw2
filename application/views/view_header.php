@@ -89,7 +89,7 @@
                             <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
                                                         echo ' active';
                                                     } ?>">
-                                <a href="<?php echo base_url('/Dosen/listMatkul') ?>" class="sidebar-link">
+                                <a href="<?php echo base_url('/Dosen/') ?>" class="sidebar-link">
                                     <i class="bi bi-stack"></i>
                                     <span>List Matkul</span>
                                 </a>
@@ -103,15 +103,6 @@
                                 </a>
                             </li>
                         <?php endif; ?>
-                        <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
-                                                    echo ' active';
-                                                } ?>">
-                            <a href="<?php echo base_url('/tambah') ?>" class="sidebar-link">
-                                <i class="bi bi-file-earmark-medical-fill"></i>
-                                <span>Tambah RPS</span>
-                            </a>
-                        </li>
-
                         <li class="sidebar-item" style="position: absolute; bottom:2em; width:14.5em">
                             <div class="card">
                                 <div class="card-body py-4 px-4">
