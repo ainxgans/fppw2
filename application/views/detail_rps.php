@@ -48,6 +48,8 @@
                     </div>
                 </div>
             </div>
+
+
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
@@ -55,62 +57,115 @@
                         <hr>
                         <div class="row">
                             <div class="col-12">
-                                <table class="table table-lg table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Kemampuan Akhir yang Diharapkan</th>
-                                            <th>Indikator</th>
-                                            <th>Bahan Kajian</th>
-                                            <th>Metode Pembelajaran</th>
-                                            <th>Waktu</th>
-                                            <th>Metode Penilaian</th>
-                                            <th>Bahan Ajar</th>
-                                            <th>Opsi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-                                    </tbody>
-                                </table>
-                                <button type="button" class="btn btn-primary float-end" data-bs-toggle="modal" data-bs-target="#inlineForm">
-                                    <i class="bi bi-plus-square-fill mx-2"></i>Tambahkan Unit Pembelajaran
+                                <div class="table-responsive">
+                                    <table class="table table-lg table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Kemampuan Akhir yang Diharapkan</th>
+                                                <th>Indikator</th>
+                                                <th>Bahan Kajian</th>
+                                                <th>Metode Pembelajaran</th>
+                                                <th>Waktu</th>
+                                                <th>Metode Penilaian</th>
+                                                <th>Bahan Ajar</th>
+                                                <th>Opsi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $no = 1;
+                                            foreach ($unit as $u) : ?>
+                                                <tr>
+                                                    <td><?= $no++ ?></td>
+                                                    <td><?= $u['km_akhir_p'] ?></td>
+                                                    <td><?= $u['indikator'] ?></td>
+                                                    <td><?= $u['bhn_kajian'] ?></td>
+                                                    <td><?= $u['mtd_belajar'] ?></td>
+                                                    <td><?= $u['waktu'] ?></td>
+                                                    <td><?= $u['mtd_nilai'] ?></td>
+                                                    <td><?= $u['bahan_ajar'] ?></td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-sm btn-outline-danger">Hapus</a>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <button type="button" class="btn btn-outline-primary block float-end" data-bs-toggle="modal" data-bs-target="#default">
+                                    Tambah Unit Pembelajaran
                                 </button>
-                                <div class="modal fade text-left show" id="inlineForm" tabindex="-1" aria-labelledby="myModalLabel33" style="display: block; padding-right: 15px;" aria-modal="true" role="dialog">
-                                    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                                <div class="modal modal-xl fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h4 class="modal-title" id="myModalLabel33">
-                                                    Login Form
-                                                </h4>
-                                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-x">
-                                                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                                                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                                                    </svg>
+                                                <h5 class="modal-title" id="myModalLabel1">
+                                                    Tambah Unit Pembelajaran
+                                                </h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="<?= base_url('/Dosen/tambahUnit/') . $rps['id'] ?>" method="post">
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="km_akhir_p">Kemampuan akhir praktikum : </label>
+                                                                <textarea id="km_akhir_p" type="text" name="km_akhir_p" class="ckeditor" placeholder="Kemampuan akhir praktikum"></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="indikator">Indikator : </label>
+                                                                <textarea id="indikator" type="text" name="indikator" class="ckeditor" placeholder="Indikator"></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="bhn_kajian">Bahan kajian : </label>
+                                                                <textarea id="bhn_kajian" type="text" name="bhn_kajian" class="ckeditor" placeholder="Bahan kajian"></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="mtd_belajar">Metode belajar : </label>
+                                                                <textarea name="mtd_belajar" id="mtd_belajar" class="form-control" placeholder="Metode belajar"></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="waktu">Waktu : </label>
+                                                                <input type="number" name="waktu" id="waktu" class="form-control" placeholder="Waktu">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="mtd_nilai">Metode nilai :</label>
+                                                                <input class="form-control" type="number" name="mtd_nilai" id="mtd_nilai" placeholder="Metode nilai">
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="bahan_ajar">Bahan ajar : </label>
+                                                                <input class="form-control" type="number" name="bahan_ajar" id="bahan_ajar" placeholder="Bahan ajar">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn" data-bs-dismiss="modal">
+                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Tutup</span>
+                                                </button>
+                                                <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Tambah</span>
                                                 </button>
                                             </div>
-                                            <form action="#">
-                                                <div class="modal-body">
-                                                    <label>Email: </label>
-                                                    <div class="form-group">
-                                                        <input type="text" placeholder="Email Address" class="form-control">
-                                                    </div>
-                                                    <label>Password: </label>
-                                                    <div class="form-group">
-                                                        <input type="password" placeholder="Password" class="form-control">
-                                                    </div>
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">
-                                                        <i class="bx bx-x d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Close</span>
-                                                    </button>
-                                                    <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">login</span>
-                                                    </button>
-                                                </div>
                                             </form>
                                         </div>
                                     </div>
@@ -121,6 +176,123 @@
                 </div>
             </div>
 
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-body">
+                        <h3>Tugas</h3>
+                        <hr>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="table-responsive">
+                                    <table class="table table-lg table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Kemampuan Akhir yang Diharapkan</th>
+                                                <th>Tugas</th>
+                                                <th>Indikator Nilai</th>
+                                                <th>Kriteria Nilai</th>
+                                                <th>Bobot</th>
+                                                <th>Waktu</th>
+                                                <th>Opsi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php $no = 1;
+                                            foreach ($unit as $u) : ?>
+                                                <tr>
+                                                    <td><?= $no++ ?></td>
+                                                    <td><?= $u['km_akhir'] ?></td>
+                                                    <td><?= $u['tugas'] ?></td>
+                                                    <td><?= $u['indikator_nilai'] ?></td>
+                                                    <td><?= $u['kriteria_nilai'] ?></td>
+                                                    <td><?= $u['bobot'] ?></td>
+                                                    <td><?= $u['waktu'] ?></td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-sm btn-outline-danger">Hapus</a>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <button type="button" class="btn btn-outline-primary block float-end" data-bs-toggle="modal" data-bs-target="#modal2">
+                                    Tambah aktivitas
+                                </button>
+                                <div class="modal modal-xl fade text-left" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="myModalLabel2">
+                                                    Tambah Tugas
+                                                </h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="<?= base_url('/Dosen/tambahTugas/') . $rps['id'] ?>" method="post">
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="tugas">Tugas : </label>
+                                                                <textarea name="tugas" id="tugas" class="ckeditor" placeholder="tugas"></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="km_akhir">Kemampuan akhir : </label>
+                                                                <textarea id="km_akhir" type="text" name="km_akhir" class="ckeditor" placeholder="Kemampuan akhir "></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="indikator_nilai">Indikator nilai : </label>
+                                                                <textarea id="indikator_nilai" type="text" name="indikator_nilai" class="ckeditor" placeholder="Indikator nilai"></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="kriteria_nilai">Kriteria nilai : </label>
+                                                                <textarea id="kriteria_nilai" type="text" name="kriteria_nilai" class="ckeditor" placeholder="Kriteria nilai"></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="bobot">Bobot : </label>
+                                                                <textarea name="bobot" id="bobot" class="form-control" placeholder="Bobot"></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="waktu">Waktu : </label>
+                                                                <input type="number" name="waktu" id="waktu" class="form-control" placeholder="Waktu">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn" data-bs-dismiss="modal">
+                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Tutup</span>
+                                                </button>
+                                                <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Tambah</span>
+                                                </button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 </section>
 <script>

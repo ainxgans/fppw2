@@ -2,9 +2,8 @@
 
 class Dosen_m extends CI_Model
 {
-    public function tambahRps($table, $data)
+    public function tambah($table, $data)
     {
         $this->db->insert($table, $data);
-        return die($this->db->last_query());
     }
 }
