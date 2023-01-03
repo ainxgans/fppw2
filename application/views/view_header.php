@@ -50,45 +50,54 @@
                 </div>
                 <div class="sidebar-menu">
                     <ul class="menu">
-                        <li class="sidebar-title">Menu</li>
-                        <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
-                                                    echo ' active';
-                                                } ?>">
-                            <a href="<?php echo base_url('/Admin/') ?>" class="sidebar-link">
-                                <i class="bi bi-people-fill"></i>
-                                <span>List Dosen</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
-                                                    echo ' active';
-                                                } ?>">
-                            <a href="<?php echo base_url('/Admin/tambahDosen') ?>" class="sidebar-link">
-                                <i class="bi bi-person-fill-add"></i>
-                                <span>Tambah Dosen</span>
-                            </a>
-                        </li>
-
-                        <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
-                                                    echo ' active';
-                                                } ?>">
-                            <a href="<?php echo base_url('/Admin/tambahMatkul') ?>" class="sidebar-link">
-                                <i class="bi bi-file-earmark-medical-fill"></i>
-                                <span>Tambah Matkul</span>
-                            </a>
-                        </li>
-                        <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
-                                                    echo ' active';
-                                                } ?>">
-                            <a href="<?php echo base_url('/Admin/listMatkul') ?>" class="sidebar-link">
-                                <i class="bi bi-stack"></i>
-                                <span>List Matkul</span>
-                            </a>
-                        </li>
-                        <?php if ($user['akses']) : ?>
+                        <?php if ($user['akses'] == 1) : ?>
+                            <li class="sidebar-title">Menu</li>
+                            <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
+                                                        echo ' active';
+                                                    } ?>">
+                                <a href="<?php echo base_url('/Admin/') ?>" class="sidebar-link">
+                                    <i class="bi bi-people-fill"></i>
+                                    <span>List Dosen</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
+                                                        echo ' active';
+                                                    } ?>">
+                                <a href="<?php echo base_url('/Admin/tambahDosen') ?>" class="sidebar-link">
+                                    <i class="bi bi-person-fill-add"></i>
+                                    <span>Tambah Dosen</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
+                                                        echo ' active';
+                                                    } ?>">
+                                <a href="<?php echo base_url('/Admin/listMatkul') ?>" class="sidebar-link">
+                                    <i class="bi bi-stack"></i>
+                                    <span>List Matkul</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
+                                                        echo ' active';
+                                                    } ?>">
+                                <a href="<?php echo base_url('/Admin/tambahMatkul') ?>" class="sidebar-link">
+                                    <i class="bi bi-file-earmark-medical-fill"></i>
+                                    <span>Tambah Matkul</span>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if ($user['akses'] == 2) : ?>
+                            <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
+                                                        echo ' active';
+                                                    } ?>">
+                                <a href="<?php echo base_url('/Dosen/listMatkul') ?>" class="sidebar-link">
+                                    <i class="bi bi-stack"></i>
+                                    <span>List Matkul</span>
+                                </a>
+                            </li>
                             <li class="sidebar-item <?php if ($this->uri->segment(1) == "list") {
                                                         echo ' active';
                                                     } ?>">
-                                <a href="<?php echo base_url('/list') ?>" class="sidebar-link">
+                                <a href="<?php echo base_url('/Dosen/listRps') ?>" class="sidebar-link">
                                     <i class="bi bi-stack"></i>
                                     <span>List RPS</span>
                                 </a>
