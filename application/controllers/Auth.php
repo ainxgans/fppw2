@@ -13,6 +13,16 @@ class Auth extends CI_Controller
     // create index method
     public function index()
     {
+        if ($this->session->userdata('id')) {
+            if ($this->session->userdata('akses') == 1) {
+                redirect('Admin');
+            } elseif ($this->session->userdata('akses') == 2) {
+                redirect('Dosen');
+            } else {
+                redirect('Mahasiswa');
+            }
+        }
+        $data['judul'] = "Login | RPS";
         $this->form_validation->set_rules('id', 'ID', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
         if ($this->form_validation->run() == FALSE) {
@@ -25,7 +35,9 @@ class Auth extends CI_Controller
             if ($user) {
                 if (password_verify($password, $user['password'])) {
                     $data = [
-                        'id' => $user['id']
+                        'id' => $user['id'],
+                        'nama' => $user['nama'],
+                        'akses' => $user['akses']
                     ];
                     $this->session->set_userdata($data);
                     if ($user['akses'] == 1) {
@@ -56,9 +68,8 @@ class Auth extends CI_Controller
     }
     public function logout()
     {
-        $this->session->unset_userdata('id');
-        $this->session->unset_userdata('nama');
-        $this->session->unset_userdata('user_email');
+        $logged = array('id', 'nama', 'akses');
+        $this->session->unset_userdata($logged);
         redirect('Auth');
     }
 }

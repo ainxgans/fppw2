@@ -10,6 +10,10 @@ class Dosen extends CI_Controller
         $this->load->model('User_m');
         $this->load->library('form_validation');
         $this->load->model('Dosen_m');
+        $this->load->model('Admin_m');
+        if (!$this->session->userdata('id') || ($this->session->userdata('akses') != '2')) {
+            redirect('Auth');
+        }
     }
     public function index()
     {
@@ -74,6 +78,8 @@ class Dosen extends CI_Controller
         $data['judul'] = "Detail RPS";
         $id = $this->uri->segment(3);
         $data['unit'] = $this->db->get_where('unit_pembelajaran', ['id_rps' => $id])->result_array();
+        $data['tugas'] = $this->db->get_where('tugas', ['id_rps' => $id])->result_array();
+        $data['rpp'] = $this->db->get_where('rpp', ['id_rps' => $id])->result_array();
         $this->db->select('*');
         $this->db->from('rps');
         $this->db->join('matkul', 'matkul.kode = rps.id_matkul');
@@ -108,7 +114,7 @@ class Dosen extends CI_Controller
                 'bahan_ajar' => $this->input->post('bahan_ajar')
             ];
             $this->Dosen_m->tambah($table, $isi);
-            redirect('dosen/detailRps');
+            redirect('dosen/detailRps' . $id);
         }
     }
     public function tambahTugas($id)
@@ -123,7 +129,7 @@ class Dosen extends CI_Controller
         if ($this->form_validation->run() == false) {
             redirect('dosen/detailRps/' . $id);
         } else {
-            $table = 'aktivitas';
+            $table = 'tugas';
             $isi = [
                 'id_rps' => $id,
                 'tugas' => $this->input->post('tugas'),
@@ -134,7 +140,34 @@ class Dosen extends CI_Controller
                 'indikator_nilai' => $this->input->post('indikator_nilai')
             ];
             $this->Dosen_m->tambah($table, $isi);
-            redirect('dosen/detailRps');
+            redirect('dosen/detailRps' . $id);
+        }
+    }
+    public function tambahRpp($id)
+    {
+
+        $data['rps'] = $this->db->get_where('rps', ['id' => $id])->row_array();
+        $this->form_validation->set_rules('minggu', 'Minggu', 'required');
+        $this->form_validation->set_rules('km_akhir', 'Kemampuan Akhir yang Diharapkan', 'required');
+        $this->form_validation->set_rules('indikator', 'Indikator', 'required');
+        $this->form_validation->set_rules('topik', 'Strategi Pembelajaran', 'required');
+        $this->form_validation->set_rules('waktu', 'Waktu', 'required');
+        $this->form_validation->set_rules('penilaian', 'Penilaian', 'required');
+        if ($this->form_validation->run() == false) {
+            redirect('dosen/detailRps/' . $id);
+        } else {
+            $table = 'rpp';
+            $isi = [
+                'id_rps' => $id,
+                'minggu' => $this->input->post('minggu'),
+                'km_akhir' => $this->input->post('km_akhir'),
+                'indikator' => $this->input->post('indikator'),
+                'topik' => $this->input->post('topik'),
+                'waktu' => $this->input->post('waktu'),
+                'penilaian' => $this->input->post('penilaian')
+            ];
+            $this->Dosen_m->tambah($table, $isi);
+            redirect('dosen/detailRps' . $id);
         }
     }
 }

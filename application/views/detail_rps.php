@@ -49,7 +49,7 @@
                 </div>
             </div>
 
-
+            <!-- Unit unit pembelajaran awal -->
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
@@ -175,7 +175,7 @@
                     </div>
                 </div>
             </div>
-
+            <!-- Tugas dan Aktivitas -->
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
@@ -188,31 +188,147 @@
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Kemampuan Akhir yang Diharapkan</th>
                                                 <th>Tugas</th>
-                                                <th>Indikator Nilai</th>
-                                                <th>Kriteria Nilai</th>
-                                                <th>Bobot</th>
+                                                <th>Kemampuan Akhir yang Diharapkan</th>
                                                 <th>Waktu</th>
+                                                <th>Bobot</th>
+                                                <th>Kriteria Nilai</th>
+                                                <th>Indikator Nilai</th>
                                                 <th>Opsi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $no = 1;
-                                            foreach ($unit as $u) : ?>
+                                            <?php $i = 1; ?>
+                                            <?php foreach ($tugas as $t) : ?>
                                                 <tr>
-                                                    <td><?= $no++ ?></td>
-                                                    <td><?= $u['km_akhir'] ?></td>
-                                                    <td><?= $u['tugas'] ?></td>
-                                                    <td><?= $u['indikator_nilai'] ?></td>
-                                                    <td><?= $u['kriteria_nilai'] ?></td>
-                                                    <td><?= $u['bobot'] ?></td>
-                                                    <td><?= $u['waktu'] ?></td>
-                                                    <td>
-                                                        <a href="#" class="btn btn-sm btn-outline-danger">Hapus</a>
-                                                    </td>
+                                                    <td><?= $i++; ?></td>
+                                                    <td><?= $t['tugas']; ?></td>
+                                                    <td><?= $t['km_akhir']; ?></td>
+                                                    <td><?= $t['waktu']; ?></td>
+                                                    <td><?= $t['bobot']; ?></td>
+                                                    <td><?= $t['kriteria_nilai']; ?></td>
+                                                    <td><?= $t['indikator_nilai']; ?></td>
                                                 </tr>
                                             <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <button type="button" class="btn btn-outline-primary block float-end" data-bs-toggle="modal" data-bs-target="#modal2">
+                                    Tambah aktivitas
+                                </button>
+                                <div class="modal modal-xl fade text-left" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="myModalLabel2">
+                                                    Tambah Tugas
+                                                </h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="<?= base_url('/Dosen/tambahTugas/') . $rps['id'] ?>" method="post">
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="tugas">Tugas : </label>
+                                                                <textarea name="tugas" id="tugas" class="ckeditor" placeholder="tugas"></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="km_akhir">Kemampuan akhir : </label>
+                                                                <textarea id="km_akhir" type="text" name="km_akhir" class="ckeditor" placeholder="Kemampuan akhir "></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="indikator_nilai">Indikator nilai : </label>
+                                                                <textarea id="indikator_nilai" type="text" name="indikator_nilai" class="ckeditor" placeholder="Indikator nilai"></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="kriteria_nilai">Kriteria nilai : </label>
+                                                                <textarea id="kriteria_nilai" type="text" name="kriteria_nilai" class="ckeditor" placeholder="Kriteria nilai"></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="bobot">Bobot : </label>
+                                                                <textarea name="bobot" id="bobot" class="form-control" placeholder="Bobot"></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="waktu">Waktu : </label>
+                                                                <input type="number" name="waktu" id="waktu" class="form-control" placeholder="Waktu">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn" data-bs-dismiss="modal">
+                                                    <i class="bx bx-x d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Tutup</span>
+                                                </button>
+                                                <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                                                    <i class="bx bx-check d-block d-sm-none"></i>
+                                                    <span class="d-none d-sm-block">Tambah</span>
+                                                </button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Rencana Pelaksanaan Pembelajaran -->
+            <div class="card">
+                <div class="card-content">
+                    <div class="card-body">
+                        <h3>Rencana Pelaksanaan Pembelajaran</h3>
+                        <hr>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="table-responsive">
+                                    <table class="table table-lg table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Minggu</th>
+                                                <th>Kemampuan Akhir yang Diharapkan</th>
+                                                <th>Indikator</th>
+                                                <th>Topik</th>
+                                                <th>Strategi Pembelajaran</th>
+                                                <th>Waktu</th>
+                                                <th>Penilaian</th>
+                                                <th>Opsi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                        <?php $i = 1; ?>
+                                        <?php foreach ($rpp as $r) : ?>
+                                            <tr>
+                                                <td><?= $i++; ?></td>
+                                                <td><?= $r['minggu']; ?></td>
+                                                <td><?= $r['km_akhir']; ?></td>
+                                                <td><?= $r['indikator']; ?></td>
+                                                <td><?= $r['topik']; ?></td>
+                                                <td><?= $r['strategi_pembelajaran']; ?></td>
+                                                <td><?= $r['waktu']; ?></td>
+                                                <td><?= $r['penilaian']; ?></td>
+                                                <td>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>

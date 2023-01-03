@@ -10,6 +10,9 @@ class Admin extends CI_Controller
         $this->load->model('User_m');
         $this->load->library('form_validation');
         $this->load->model('Admin_m');
+        if (!$this->session->userdata('id') || $this->session->userdata('akses') != 1) {
+            redirect('Auth');
+        }
     }
     public function index()
     {
@@ -46,7 +49,7 @@ class Admin extends CI_Controller
             ];
             $this->Admin_m->tambah($table, $data);
             $this->session->set_flashdata('message', 'Dosen berhasil ditambahkan!');
-            redirect('Admin/tambahDosen');
+            redirect('Admin/');
         }
     }
     public function listMatkul()
@@ -91,7 +94,7 @@ class Admin extends CI_Controller
             ];
             $this->Admin_m->tambah($table, $data);
             $this->session->set_flashdata('message', 'Mata Kuliah berhasil ditambahkan!');
-            redirect('Admin/tambahMatkul');
+            redirect('Admin/listMatkul');
         }
     }
     public function deleteMatkul($id)

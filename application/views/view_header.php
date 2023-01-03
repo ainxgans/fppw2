@@ -9,20 +9,20 @@
     <link rel="stylesheet" href="<?php echo base_url('/assets/') ?>css/main/app.css" />
     <link rel="stylesheet" href="<?php echo base_url('/assets/') ?>/css/main/app-dark.css" />
     <link rel="shortcut icon" href="<?php echo base_url('/assets/') ?>/images/logo/favicon.svg" type="image/x-icon" />
-    <link rel="shortcut icon" href="<?php echo base_url('/assets/') ?>   /images/logo/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="<?php echo base_url('/assets/') ?>/images/logo/favicon.png" type="image/png" />
 
     <link rel="stylesheet" href="assets/css/shared/iconly.css" />
 </head>
 
 <body>
-    <script src="assets/js/initTheme.js"></script>
+    <script src="<?php echo base_url('/assets/') ?>js/initTheme.js"></script>
     <div id="app">
         <div id="sidebar" class="active">
             <div class="sidebar-wrapper">
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo">
-                            <a href="index.html"></a><img src=" assets/images/amikom.png" alt="Logo" srcset="" /></a>
+                            <a href="index.html"></a><img src="<?= base_url('assets/images') ?>/amikom.png" alt="Logo" srcset="" /></a>
                         </div>
                         <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
@@ -52,7 +52,7 @@
                     <ul class="menu">
                         <?php if ($user['akses'] == 1) : ?>
                             <li class="sidebar-title">Menu</li>
-                            <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
+                            <li class="sidebar-item <?php if ($this->uri->segment(2) == "") {
                                                         echo ' active';
                                                     } ?>">
                                 <a href="<?php echo base_url('/Admin/') ?>" class="sidebar-link">
@@ -60,28 +60,12 @@
                                     <span>List Dosen</span>
                                 </a>
                             </li>
-                            <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
-                                                        echo ' active';
-                                                    } ?>">
-                                <a href="<?php echo base_url('/Admin/tambahDosen') ?>" class="sidebar-link">
-                                    <i class="bi bi-person-fill-add"></i>
-                                    <span>Tambah Dosen</span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
+                            <li class="sidebar-item <?php if ($this->uri->segment(2) == "listMatkul") {
                                                         echo ' active';
                                                     } ?>">
                                 <a href="<?php echo base_url('/Admin/listMatkul') ?>" class="sidebar-link">
                                     <i class="bi bi-stack"></i>
                                     <span>List Matkul</span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
-                                                        echo ' active';
-                                                    } ?>">
-                                <a href="<?php echo base_url('/Admin/tambahMatkul') ?>" class="sidebar-link">
-                                    <i class="bi bi-file-earmark-medical-fill"></i>
-                                    <span>Tambah Matkul</span>
                                 </a>
                             </li>
                         <?php endif; ?>
