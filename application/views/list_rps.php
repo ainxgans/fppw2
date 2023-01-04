@@ -28,6 +28,7 @@
                                 <td><?= $value['sks'] ?></td>
                                 <?php if ($user['akses'] == 2) : ?>
                                     <td><a href="<?= base_url('/Dosen/detailRps/' . $value['id']) ?>">Isi detail</a></td>
+                                    <td><a href="<?= base_url('/Dosen/cetakRps/' . $value['id']) ?>">Cetak</a></td>
                                 <?php endif; ?>
                             </tr>
 

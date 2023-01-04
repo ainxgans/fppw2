@@ -24,6 +24,12 @@
                         <a href="index.html" class="auth-title">RPS</a>
                     </div>
                     <h3 class="auth mb-5">Log in.</h3>
+                    <?php if ($this->session->flashdata('message')) : ?>
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <?= $this->session->flashdata('message') ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
                     <form action="<?= base_url('/auth') ?>" method="post">
                         <div class="form-group position-relative has-icon-left mb-4">
                             <input name="id" type="text" class="form-control form-control-xl" placeholder="ID" />

@@ -49,6 +49,7 @@
                             ?>
                         </table>
                     </div>
+                    <?php if ($user['akses'] == 1) : ?>
                     <button type="button" class="btn btn-primary block float-end" data-bs-toggle="modal" data-bs-target="#tambahDosen">
                         <i class="bi bi-file-earmark-medical-fill"></i><span>Tambah Matkul</span>
                     </button>
@@ -129,6 +130,7 @@
                             </div>
                         </div>
                     </div>
+                    <?php endif; ?>
                 </div>
 
     </section>

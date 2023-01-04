@@ -48,6 +48,7 @@ class Auth extends CI_Controller
                         redirect('Mahasiswa');
                     }
                 } else {
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah!</div>');
                     redirect('login');
                 }
             }

@@ -56,6 +56,7 @@ class Admin extends CI_Controller
     {
         $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
         $data['judul'] = "List Mata Kuliah";
+        $data['dosen'] = $this->db->get_where('users', ['akses' => 2])->result_array();
         $this->db->select('*');
         $this->db->from('matkul');
         $this->db->join('users', 'users.id = matkul.id_dosen');
