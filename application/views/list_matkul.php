@@ -1,7 +1,14 @@
-    <section class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
+<section class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="d-flex justify-content-end pb-2">
+<?php if($this->session->userdata('akses') == 1): ?>
+    <button type="button" class="btn btn-primary block float-end" data-bs-toggle="modal" data-bs-target="#tambahDosen">
+                        <i class="bi bi-file-earmark-medical-fill"></i><span>Tambah Matkul</span>
+                    </button>
+<?php endif; ?>
+                </div>
                     <div class="table-responsive">
                         <table class="table table-lg" id="table1">
                             <thead>
@@ -50,9 +57,6 @@
                         </table>
                     </div>
                     <?php if ($user['akses'] == 1) : ?>
-                    <button type="button" class="btn btn-primary block float-end" data-bs-toggle="modal" data-bs-target="#tambahDosen">
-                        <i class="bi bi-file-earmark-medical-fill"></i><span>Tambah Matkul</span>
-                    </button>
                     <div class="modal modal-lg fade text-left" id="tambahDosen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-scrollable" role="document">
                             <div class="modal-content">

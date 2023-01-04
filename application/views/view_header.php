@@ -20,10 +20,10 @@
         <div id="sidebar" class="active">
             <div class="sidebar-wrapper">
                 <div class="sidebar-header position-relative">
-                    <div class="d-flex justify-content-between align-items-center">
-                        <div class="logo">
-                            <a href="index.html"></a><img src="<?= base_url('assets/images') ?>/amikom.png" alt="Logo" srcset="" /></a>
-                        </div>
+                    <div class="logo">
+                        <a href="index.html"></a><img src="<?= base_url('assets/images') ?>/amikom.png" style="width:100%; height:100%" alt="Logo" srcset=""/></a>
+                    </div>
+                    <div class="d-flex justify-content-end align-items-center">
                         <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
                                 <g fill="none" fill-rule="evenodd" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">

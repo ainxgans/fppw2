@@ -47,7 +47,7 @@ class Auth extends CI_Controller
                             $this->session->set_userdata($data);
                             redirect('Dosen');
                         } else {
-                            $this->session->set_flashdata('message', 'Anda Belum Mengajar!');
+                            $this->session->set_flashdata('message', 'Anda Belum Mengajar!, silahkan hubungi Admin');
                             redirect('login');
                         }
                     } else {

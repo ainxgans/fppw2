@@ -2,9 +2,11 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahDosen">
-                    <i class="bi bi-person-fill-add"></i>Tambah Dosen
-                </button>
+                <div class="d-flex justify-content-end pb-2">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahDosen">
+                        <i class="bi bi-person-fill-add"></i>Tambah Dosen
+                    </button>
+                </div>
                 <div class="table-responsive">
                     <table class="table table-lg" id="table1">
                         <thead>
