@@ -32,13 +32,13 @@
                     <?php endif; ?>
                     <form action="<?= base_url('/auth') ?>" method="post">
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input name="id" type="text" class="form-control form-control-xl" placeholder="ID" />
+                            <input name="id" type="text" class="form-control form-control-xl" placeholder="ID" required/>
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
                         </div>
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input name="password" type="password" class="form-control form-control-xl" placeholder="Password" />
+                            <input name="password" type="password" class="form-control form-control-xl" placeholder="Password" required/>
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
@@ -60,6 +60,8 @@
             </div>
         </div>
     </div>
+    <script src="<?= base_url('/assets/') ?>js/app.js"></script>
+<script src="<?= base_url('/assets/') ?>js/bootstrap.js"></script>
 </body>
 
 </html>

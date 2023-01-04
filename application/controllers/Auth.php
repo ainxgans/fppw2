@@ -13,15 +13,6 @@ class Auth extends CI_Controller
     // create index method
     public function index()
     {
-        if ($this->session->userdata('id')) {
-            if ($this->session->userdata('akses') == 1) {
-                redirect('Admin');
-            } elseif ($this->session->userdata('akses') == 2) {
-                redirect('Dosen');
-            } else {
-                redirect('Mahasiswa');
-            }
-        }
         $data['judul'] = "Login | RPS";
         $this->form_validation->set_rules('id', 'ID', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
@@ -32,25 +23,43 @@ class Auth extends CI_Controller
             $id = $this->input->post('id');
             $password = $this->input->post('password');
             $user = $this->db->get_where('users', ['id' => $id])->row_array();
+            // cek user
             if ($user) {
+                // cek password
                 if (password_verify($password, $user['password'])) {
-                    $data = [
-                        'id' => $user['id'],
-                        'nama' => $user['nama'],
-                        'akses' => $user['akses']
-                    ];
-                    $this->session->set_userdata($data);
                     if ($user['akses'] == 1) {
+                        $data = [
+                            'id' => $user['id'],
+                            'nama' => $user['nama'],
+                            'akses' => $user['akses']
+                        ];
+                        $this->session->set_userdata($data);
                         redirect('Admin');
                     } elseif ($user['akses'] == 2) {
-                        redirect('Dosen');
+                        $matkul = $this->db->get_where('matkul', ['id_dosen' => $user['id']])->row_array();
+                        if ($matkul) {
+                            $data = [
+                                'id' => $user['id'],
+                                'nama' => $user['nama'],
+                                'akses' => $user['akses'],
+                                'id_matkul' => $matkul['id_matkul']
+                            ];
+                            $this->session->set_userdata($data);
+                            redirect('Dosen');
+                        } else {
+                            $this->session->set_flashdata('message', 'Anda Belum Mengajar!');
+                            redirect('login');
+                        }
                     } else {
                         redirect('Mahasiswa');
                     }
                 } else {
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Password Salah!</div>');
+                    $this->session->set_flashdata('message', 'Password Salah!');
                     redirect('login');
                 }
+            }else{
+                $this->session->set_flashdata('message', 'ID Tidak Terdaftar!');
+                redirect('login');
             }
         }
     }

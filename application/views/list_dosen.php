@@ -2,6 +2,9 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahDosen">
+                    <i class="bi bi-person-fill-add"></i>Tambah Dosen
+                </button>
                 <div class="table-responsive">
                     <table class="table table-lg" id="table1">
                         <thead>
@@ -29,9 +32,6 @@
                         ?>
                     </table>
                 </div>
-                <button type="button" class="btn btn-primary block float-end" data-bs-toggle="modal" data-bs-target="#tambahDosen">
-                    <i class="bi bi-person-fill-add"></i><span>Tambah Dosen</span>
-                </button>
                 <div class="modal modal-lg fade text-left" id="tambahDosen" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-scrollable" role="document">
                         <div class="modal-content">

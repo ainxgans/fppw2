@@ -44,7 +44,7 @@ class Admin extends CI_Controller
                 'id' => htmlspecialchars($this->input->post('id', true)),
                 'nama' => htmlspecialchars($this->input->post('nama', true)),
                 'email' => htmlspecialchars($this->input->post('email', true)),
-                'password' => password_hash($this->input->post('id'), PASSWORD_DEFAULT),
+                'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
                 'akses' => 2
             ];
             $this->Admin_m->tambah($table, $data);
