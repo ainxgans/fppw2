@@ -17,6 +17,8 @@
 <script src="<?= base_url('/assets/') ?>js/app.js"></script>
 <script src="<?= base_url('/assets/') ?>js/bootstrap.js"></script>
 <script src="<?= base_url('/assets/') ?>ckeditor/ckeditor.js"></script>
+<script src="<?= base_url('/assets/') ?>extensions/simple-datatables/umd/simple-datatables.js"></script>
+<script src="<?= base_url('/assets/') ?>js/pages/simple-datatables.js"></script>
 </body>
 
 </html>

@@ -1,9 +1,9 @@
-<section class="row">
+<section class="section">
     <div class="col-12">
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-lg">
+                    <table class="table table-lg" id="table1">
                         <thead>
                             <tr>
                                 <th>No.</th>
@@ -88,4 +88,3 @@
     </div>
 
 </section>
-</div>
