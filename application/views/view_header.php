@@ -11,7 +11,6 @@
     <link rel="shortcut icon" href="<?php echo base_url('/assets/') ?>/images/logo/favicon.svg" type="image/x-icon" />
     <link rel="shortcut icon" href="<?php echo base_url('/assets/') ?>/images/logo/favicon.png" type="image/png" />
 
-    <link rel="stylesheet" href="assets/css/shared/iconly.css" />
 </head>
 
 <body>
