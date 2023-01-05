@@ -35,9 +35,7 @@ class Admin extends CI_Controller
             'is_unique' => 'Email sudah terdaftar!'
         ]);
         if ($this->form_validation->run() == false) {
-            $this->load->view('view_header.php', $data);
-            $this->load->view('tambah_dosen.php', $data);
-            $this->load->view('view_footer.php', $data);
+            redirect('Admin/');
         } else {
             $table = 'users';
             $data = [
@@ -51,6 +49,36 @@ class Admin extends CI_Controller
             $this->session->set_flashdata('message', 'Dosen berhasil ditambahkan!');
             redirect('Admin/');
         }
+    }
+    public function editDosen($id)
+    {
+        $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
+        $data['judul'] = "Edit Dosen";
+        $data['dosen'] = $this->db->get_where('users', ['id' => $id])->row_array();
+        $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email', [
+            'is_unique' => 'Email sudah terdaftar!'
+        ]);
+        if ($this->form_validation->run() == false) {
+            $this->load->view('view_header.php', $data);
+            $this->load->view('edit_dosen.php', $data);
+            $this->load->view('view_footer.php', $data);
+        } else {
+            $table = 'users';
+            $data = [
+                'nama' => htmlspecialchars($this->input->post('nama', true)),
+                'email' => htmlspecialchars($this->input->post('email', true)),
+            ];
+            $this->Admin_m->edit($table, $data, $id);
+            $this->session->set_flashdata('message', 'Dosen berhasil diubah!');
+            redirect('Admin/');
+        }
+    }
+    public function hapusDosen($id)
+    {
+        $this->Admin_m->hapusDosen($id);
+        $this->session->set_flashdata('message', 'Dosen berhasil dihapus!');
+        redirect('Admin/');
     }
     public function listMatkul()
     {
@@ -70,9 +98,7 @@ class Admin extends CI_Controller
         $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
         $data['dosen'] = $this->db->get_where('users', ['akses' => 2])->result_array();
         $data['judul'] = "Tambah Mata Kuliah";
-        $this->form_validation->set_rules('kode', 'Kode', 'required|trim|is_unique[matkul.kode]', [
-            'is_unique' => 'Kode sudah terdaftar!'
-        ]);
+        $this->form_validation->set_rules('kode', 'Kode', 'required|trim');
         $this->form_validation->set_rules('nm_matkul', 'Nama Mata Kuliah', 'required|trim');
         $this->form_validation->set_rules('id_dosen', 'Dosen', 'required|trim');
         $this->form_validation->set_rules('semester', 'Semester', 'required|trim');
@@ -80,9 +106,7 @@ class Admin extends CI_Controller
         $this->form_validation->set_rules('penilaian', 'Penilaian', 'required|trim');
 
         if ($this->form_validation->run() == false) {
-            $this->load->view('view_header.php', $data);
-            $this->load->view('tambah_matkul.php', $data);
-            $this->load->view('view_footer.php', $data);
+            redirect('Admin/listMatkul');
         } else {
             $table = 'matkul';
             $data = [
@@ -98,15 +122,40 @@ class Admin extends CI_Controller
             redirect('Admin/listMatkul');
         }
     }
-    public function deleteMatkul($id)
+    public function editMatkul($id)
     {
-        $this->Admin_m->deleteMatkul($id);
-        $this->session->set_flashdata('message', 'Mata Kuliah berhasil dihapus!');
-        redirect('Admin/listMatkul');
+        $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
+        $data['dosen'] = $this->db->get_where('users', ['akses' => 2])->result_array();
+        $data['judul'] = "Edit Mata Kuliah";
+        $data['matkul'] = $this->db->get_where('matkul', ['kode' => $id])->row_array();
+        $this->form_validation->set_rules('kode', 'Kode', 'required|trim');
+        $this->form_validation->set_rules('nm_matkul', 'Nama Mata Kuliah', 'required|trim');
+        $this->form_validation->set_rules('id_dosen', 'Dosen', 'required|trim');
+        $this->form_validation->set_rules('semester', 'Semester', 'required|trim');
+        $this->form_validation->set_rules('sks', 'SKS', 'required|trim');
+        $this->form_validation->set_rules('penilaian', 'Penilaian', 'required|trim');
+
+        if ($this->form_validation->run() == false) {
+            $this->load->view('view_header.php', $data);
+            $this->load->view('edit_matkul.php', $data);
+            $this->load->view('view_footer.php', $data);
+        } else {
+            $table = 'matkul';
+            $data = [
+                'nm_matkul' => htmlspecialchars($this->input->post('nm_matkul', true)),
+                'id_dosen' => htmlspecialchars($this->input->post('id_dosen', true)),
+                'semester' => htmlspecialchars($this->input->post('semester', true)),
+                'sks' => htmlspecialchars($this->input->post('sks', true)),
+                'penilaian' => $this->input->post('penilaian', true)
+            ];
+            $this->Admin_m->edit($table, $data, $id);
+            $this->session->set_flashdata('message', 'Mata Kuliah berhasil diubah!');
+            redirect('Admin/listMatkul');
+        }
     }
-    public function Matkul($id)
+    public function hapusMatkul($id)
     {
-        $this->Admin_m->deleteMatkul($id);
+        $this->Admin_m->hapusMatkul($id);
         $this->session->set_flashdata('message', 'Mata Kuliah berhasil dihapus!');
         redirect('Admin/listMatkul');
     }

@@ -8,8 +8,8 @@
 
     <link rel="stylesheet" href="<?php echo base_url('/assets/') ?>css/main/app.css" />
     <link rel="stylesheet" href="<?php echo base_url('/assets/') ?>/css/main/app-dark.css" />
-    
-    <link rel="stylesheet" href="<?php echo base_url('/assets/') ?>extensions/simple-datatables/style.css"/>
+
+    <link rel="stylesheet" href="<?php echo base_url('/assets/') ?>extensions/simple-datatables/style.css" />
     <link rel="stylesheet" href="<?php echo base_url('/assets/') ?>css/pages/simple-datatables.css" />
 
 </head>
@@ -21,7 +21,7 @@
             <div class="sidebar-wrapper">
                 <div class="sidebar-header position-relative">
                     <div class="logo">
-                        <a href="index.html"></a><img src="<?= base_url('assets/images') ?>/amikom.png" style="width:100%; height:100%" alt="Logo" srcset=""/></a>
+                        <a href="index.html"></a><img src="<?= base_url('assets/images') ?>/amikom.png" style="width:100%; height:100%" alt="Logo" srcset="" /></a>
                     </div>
                     <div class="d-flex justify-content-end align-items-center">
                         <div class="theme-toggle d-flex gap-2 align-items-center mt-2">
@@ -124,9 +124,10 @@
                     </div>
                 </div>
             </div>
+            <div class="flash-data" data-flashdata="<?= $this->session->flashdata('message'); ?>"></div>
             <?php if ($this->session->flashdata('message')) : ?>
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <?= $this->session->flashdata('message'); ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
+                </div> -->
             <?php endif; ?>

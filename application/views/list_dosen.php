@@ -15,6 +15,7 @@
                                 <th>NIK</th>
                                 <th>Nama</th>
                                 <th>Email</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <?php
@@ -26,6 +27,10 @@
                                 <td><?= $value['id'] ?></td>
                                 <td><?= $value['nama'] ?></td>
                                 <td><?= $value['email'] ?></td>
+                                <td>
+                                    <a href="<?= base_url('/Admin/editDosen/' . $value['id']) ?>" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
+                                    <a href="<?= base_url('/Admin/hapusDosen/' . $value['id']) ?>" class="btn btn-danger btn-sm tombol-hapus"><i class="bi bi-trash"></i></a>
+                                </td>
                             </tr>
 
                         <?php
