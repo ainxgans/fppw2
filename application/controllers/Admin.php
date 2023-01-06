@@ -125,16 +125,15 @@ class Admin extends CI_Controller
     public function editMatkul($id)
     {
         $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
-        $data['dosen'] = $this->db->get_where('users', ['akses' => 2])->result_array();
         $data['judul'] = "Edit Mata Kuliah";
         $data['matkul'] = $this->db->get_where('matkul', ['kode' => $id])->row_array();
+        $data['dosen'] = $this->db->get_where('users', ['akses' => 2])->result_array();
         $this->form_validation->set_rules('kode', 'Kode', 'required|trim');
+        $this->form_validation->set_rules('id_dosen', 'Id Dosen', 'required|trim');
         $this->form_validation->set_rules('nm_matkul', 'Nama Mata Kuliah', 'required|trim');
-        $this->form_validation->set_rules('id_dosen', 'Dosen', 'required|trim');
         $this->form_validation->set_rules('semester', 'Semester', 'required|trim');
         $this->form_validation->set_rules('sks', 'SKS', 'required|trim');
-        $this->form_validation->set_rules('penilaian', 'Penilaian', 'required|trim');
-
+        $this->form_validation->set_rules('penilaian', 'Penilaian', 'required');
         if ($this->form_validation->run() == false) {
             $this->load->view('view_header.php', $data);
             $this->load->view('edit_matkul.php', $data);
@@ -142,13 +141,14 @@ class Admin extends CI_Controller
         } else {
             $table = 'matkul';
             $data = [
+                'kode' => htmlspecialchars($this->input->post('kode', true)),
                 'nm_matkul' => htmlspecialchars($this->input->post('nm_matkul', true)),
                 'id_dosen' => htmlspecialchars($this->input->post('id_dosen', true)),
                 'semester' => htmlspecialchars($this->input->post('semester', true)),
                 'sks' => htmlspecialchars($this->input->post('sks', true)),
-                'penilaian' => $this->input->post('penilaian', true)
+                'penilaian' => htmlspecialchars($this->input->post('penilaian', true))
             ];
-            $this->Admin_m->edit($table, $data, $id);
+            $this->Admin_m->editMatkul($table, $data, $id);
             $this->session->set_flashdata('message', 'Mata Kuliah berhasil diubah!');
             redirect('Admin/listMatkul');
         }

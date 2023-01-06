@@ -225,7 +225,7 @@
                                                 </h5>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="<?= base_url('/Dosen/tambahTugas/') . $rps['id'] ?>" method="post">
+                                                <form action="<?= base_url('/dosen/tambahTugas/') . $rps['id'] ?>" method="post">
                                                     <div class="row">
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
@@ -250,8 +250,8 @@
 
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
-                                                                <label for="kriteria_nilai">Kriteria nilai : </label>
-                                                                <textarea id="kriteria_nilai" type="text" name="kriteria_nilai" class="ckeditor" placeholder="Kriteria nilai"></textarea>
+                                                                <label for="strategi_pembelajaran">Kriteria nilai : </label>
+                                                                <textarea id="strategi_pembelajaran" type="text" name="kriteria_nilai" class="ckeditor" placeholder="Kriteria nilai"></textarea>
                                                             </div>
                                                         </div>
 
@@ -333,23 +333,23 @@
                                     </table>
                                 </div>
                                 <button type="button" class="btn btn-outline-primary block float-end" data-bs-toggle="modal" data-bs-target="#modal2">
-                                    Tambah aktivitas
+                                    Tambah RPP
                                 </button>
                                 <div class="modal modal-xl fade text-left" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="myModalLabel2">
-                                                    Tambah Tugas
+                                                    Tambah RPP
                                                 </h5>
                                             </div>
                                             <div class="modal-body">
-                                                <form action="<?= base_url('/Dosen/tambahTugas/') . $rps['id'] ?>" method="post">
+                                                <form action="<?= base_url('/Dosen/tambahRpp/') . $rps['id'] ?>" method="post">
                                                     <div class="row">
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
-                                                                <label for="tugas">Tugas : </label>
-                                                                <textarea name="tugas" id="tugas" class="ckeditor" placeholder="tugas"></textarea>
+                                                                <label for="topik">Topik : </label>
+                                                                <textarea name="topik" id="topik" class="ckeditor" placeholder="topik"></textarea>
                                                             </div>
                                                         </div>
 
@@ -362,22 +362,29 @@
 
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
-                                                                <label for="indikator_nilai">Indikator nilai : </label>
-                                                                <textarea id="indikator_nilai" type="text" name="indikator_nilai" class="ckeditor" placeholder="Indikator nilai"></textarea>
+                                                                <label for="indikator">Indikator : </label>
+                                                                <textarea id="indikator" type="text" name="indikator" class="ckeditor" placeholder="Indikator nilai"></textarea>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
-                                                                <label for="kriteria_nilai">Kriteria nilai : </label>
-                                                                <textarea id="kriteria_nilai" type="text" name="kriteria_nilai" class="ckeditor" placeholder="Kriteria nilai"></textarea>
+                                                                <label for="strategi_pembelajaran">strategi Pembelajaran : </label>
+                                                                <textarea id="strategi_pembelajaran" type="text" name="strategi_pembelajaran" class="ckeditor" placeholder="Strategi Pembelajaran"></textarea>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
-                                                                <label for="bobot">Bobot : </label>
-                                                                <textarea name="bobot" id="bobot" class="form-control" placeholder="Bobot"></textarea>
+                                                                <label for="penilaian">Penilaian : </label>
+                                                                <textarea name="penilaian" id="penilaian" class="form-control" placeholder="Penilaian"></textarea>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-6 col-12">
+                                                            <div class="my-4">
+                                                                <label for="minggu">minggu : </label>
+                                                                <input type="number" name="minggu" id="minggu" class="form-control" placeholder="minggu">
                                                             </div>
                                                         </div>
 
@@ -387,6 +394,7 @@
                                                                 <input type="number" name="waktu" id="waktu" class="form-control" placeholder="Waktu">
                                                             </div>
                                                         </div>
+
 
                                                     </div>
                                             </div>

@@ -73,7 +73,7 @@ class Dosen extends CI_Controller
             redirect('dosen/listRps');
         }
     }
-    public function detailRps()
+    public function detailRps($id)
     {
         $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
         $data['judul'] = "Detail RPS";
@@ -156,7 +156,7 @@ class Dosen extends CI_Controller
         $this->form_validation->set_rules('topik', 'Strategi Pembelajaran', 'required');
         $this->form_validation->set_rules('waktu', 'Waktu', 'required');
         $this->form_validation->set_rules('penilaian', 'Penilaian', 'required');
-        if ($this->form_validation->run() == false) {
+        if ($this->form_validation->run()) {
             redirect('dosen/detailRps/' . $id);
         } else {
             $table = 'rpp';
@@ -166,6 +166,7 @@ class Dosen extends CI_Controller
                 'km_akhir' => $this->input->post('km_akhir'),
                 'indikator' => $this->input->post('indikator'),
                 'topik' => $this->input->post('topik'),
+                'strategi_pembelajaran' => $this->input->post('strategi_pembelajaran'),
                 'waktu' => $this->input->post('waktu'),
                 'penilaian' => $this->input->post('penilaian')
             ];

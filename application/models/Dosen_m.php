@@ -6,4 +6,9 @@ class Dosen_m extends CI_Model
     {
         $this->db->insert($table, $data);
     }
+
+    public function tambahTugas($data)
+    {
+        $this->db->insert('tugas', $data);
+    }
 }
