@@ -185,7 +185,7 @@ class Dosen extends CI_Controller
         $data['tugas'] = $this->db->get_where('tugas', ['id_rps' => $id])->result_array();
         $data['rpp'] = $this->db->get_where('rpp', ['id_rps' => $id])->result_array();
         $this->pdf->setPaper('A4', 'landscape');
-        $this->pdf->filename = "laporan-petanikode.pdf";
+        $this->pdf->filename = "RPS.pdf";
         $this->pdf->load_view('cetak_rps.php', $data);
         $this->load->view('cetak_rps.php', $data);
     }

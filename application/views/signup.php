@@ -20,15 +20,9 @@
             <div class="col-lg-5 col-12">
                 <div id="auth-left">
                     <div class="auth-logo">
-                        <a href="index.html" class="auth-title">RPS</a>
+                        <a href="<?= base_url() ?>" class="auth-title">RPS</a>
                     </div>
                     <h3 class="auth mb-5">Sign Up<h3>
-                            <?php if (validation_errors()) : ?>
-                                <div class="alert alert-primary">
-                                    <?= validation_errors() ?>
-                                </div>
-                            <?php endif ?>
-
                             <form action="" method="post">
                                 <div class="form-group position-relative has-icon-left mb-4">
                                     <input type="text" class="form-control form-control-xl" placeholder="NIK/NIM" name="id" />

@@ -57,7 +57,7 @@ class Auth extends CI_Controller
                     $this->session->set_flashdata('message', 'Password Salah!');
                     redirect('login');
                 }
-            }else{
+            } else {
                 $this->session->set_flashdata('message', 'ID Tidak Terdaftar!');
                 redirect('login');
             }
@@ -65,8 +65,9 @@ class Auth extends CI_Controller
     }
     public function signup()
     {
+        $this->form_validation->set_rules('id', 'ID', 'required|is_unique[users.id]');
         $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
-        $this->form_validation->set_rules('name', 'Username', 'required');
+        $this->form_validation->set_rules('nama', 'Nama', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
 
         if ($this->form_validation->run() == FALSE) {

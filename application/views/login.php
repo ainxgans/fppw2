@@ -30,15 +30,21 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     <?php endif; ?>
+                    <?php if ($this->session->flashdata('berhasil')) : ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <?= $this->session->flashdata('berhasil') ?>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    <?php endif; ?>
                     <form action="<?= base_url('/auth') ?>" method="post">
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input name="id" type="text" class="form-control form-control-xl" placeholder="ID" required/>
+                            <input name="id" type="text" class="form-control form-control-xl" placeholder="ID" required />
                             <div class="form-control-icon">
                                 <i class="bi bi-person"></i>
                             </div>
                         </div>
                         <div class="form-group position-relative has-icon-left mb-4">
-                            <input name="password" type="password" class="form-control form-control-xl" placeholder="Password" required/>
+                            <input name="password" type="password" class="form-control form-control-xl" placeholder="Password" required />
                             <div class="form-control-icon">
                                 <i class="bi bi-shield-lock"></i>
                             </div>
@@ -61,7 +67,7 @@
         </div>
     </div>
     <script src="<?= base_url('/assets/') ?>js/app.js"></script>
-<script src="<?= base_url('/assets/') ?>js/bootstrap.js"></script>
+    <script src="<?= base_url('/assets/') ?>js/bootstrap.js"></script>
 </body>
 
 </html>
