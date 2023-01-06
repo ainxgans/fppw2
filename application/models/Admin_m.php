@@ -26,4 +26,14 @@ class Admin_m extends CI_Model
         $this->db->where('kode', $id);
         $this->db->update($table, $isi);
     }
+    public function editMahasiswa($table, $isi, $id)
+    {
+        $this->db->where('id', $id);
+        $this->db->update($table, $isi);
+    }
+    public function hapusMahasiswa($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('users');
+    }
 }

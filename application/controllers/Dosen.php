@@ -156,7 +156,7 @@ class Dosen extends CI_Controller
         $this->form_validation->set_rules('topik', 'Strategi Pembelajaran', 'required');
         $this->form_validation->set_rules('waktu', 'Waktu', 'required');
         $this->form_validation->set_rules('penilaian', 'Penilaian', 'required');
-        if ($this->form_validation->run()) {
+        if ($this->form_validation->run() == false) {
             redirect('dosen/detailRps/' . $id);
         } else {
             $table = 'rpp';

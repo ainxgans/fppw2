@@ -159,4 +159,43 @@ class Admin extends CI_Controller
         $this->session->set_flashdata('message', 'Mata Kuliah berhasil dihapus!');
         redirect('Admin/listMatkul');
     }
+
+    public function listMahasiswa()
+    {
+        $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
+        $data['judul'] = "List Mahasiswa";
+        $data['mahasiswa'] = $this->db->get_where('users', ['akses' => 3])->result_array();
+        $this->load->view('view_header.php', $data);
+        $this->load->view('list_mahasiswa.php', $data);
+        $this->load->view('view_footer.php', $data);
+    }
+
+    public function editMahasiswa($id)
+    {
+        $data['user'] = $this->db->get_where('users', ['id' => $this->session->userData('id')])->row_array();
+        $data['judul'] = "Edit Mahasiswa";
+        $data['mahasiswa'] = $this->db->get_where('users', ['id' => $id])->row_array();
+        $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('view_header.php', $data);
+            $this->load->view('edit_mahasiswa.php', $data);
+            $this->load->view('view_footer.php', $data);
+        } else {
+            $table = 'users';
+            $data = [
+                'nama' => htmlspecialchars($this->input->post('nama', true)),
+                'email' => htmlspecialchars($this->input->post('email', true)),
+            ];
+            $this->Admin_m->editMahasiswa($table, $data, $id);
+            $this->session->set_flashdata('message', 'Mahasiswa berhasil diubah!');
+            redirect('Admin/listMahasiswa');
+        }
+    }
+    public function hapusMahasiswa($id)
+    {
+        $this->Admin_m->hapusMahasiswa($id);
+        $this->session->set_flashdata('message', 'Mahasiswa berhasil dihapus!');
+        redirect('Admin/listMahasiswa');
+    }
 }

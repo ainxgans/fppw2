@@ -68,6 +68,14 @@
                                     <span>List Matkul</span>
                                 </a>
                             </li>
+                            <li class="sidebar-item <?php if($this->uri->segment(2) == "listMahasiswa") {
+                                                        echo ' active';
+                                                    } ?>">
+                                <a href="<?php echo base_url('/Admin/listMahasiswa') ?>" class="sidebar-link">
+                                <i class="bi bi-people-fill"></i>
+                                <span>List Mahasiswa</span>
+                                </a>
+                            </li>
                         <?php endif; ?>
                         <?php if ($user['akses'] == 2) : ?>
                             <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
@@ -86,6 +94,9 @@
                                     <span>List RPS</span>
                                 </a>
                             </li>
+                        <?php endif; ?>
+                        <?php if ($user['akses'] == 3) : ?>
+                            <li>coba</li>
                         <?php endif; ?>
                         <li class="sidebar-item" style="position: absolute; bottom:2em; width:14.5em">
                             <div class="card">

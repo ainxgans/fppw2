@@ -11,9 +11,7 @@
                                 <th>Nama Mata Kuliah</th>
                                 <th>Semester</th>
                                 <th>SKS</th>
-                                <?php if ($user['akses'] == 2) : ?>
-                                    <th>Aksi</th>
-                                <?php endif; ?>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <?php
@@ -22,13 +20,13 @@
                         ?>
                             <tr>
                                 <td><?= $no ?></td>
-                                <td><?= $value['nomor_rps'] ?></td>
-                                <td><?= $value['tgl_disusun'] ?></td>
+                                <td><?= $value['kode'] ?></td>
+                                <td><?= $value['nm_matkul'] ?></td>
                                 <td><?= $value['semester'] ?></td>
                                 <td><?= $value['sks'] ?></td>
+                                <td><a target="_blank" href="<?= base_url('/Mahasiswa/cetakRps/' . $value['id']) ?>">Cetak</a></td>
                                 <?php if ($user['akses'] == 2) : ?>
                                     <td><a href="<?= base_url('/Dosen/detailRps/' . $value['id']) ?>">Isi detail</a></td>
-                                    <td><a target="_blank" href="<?= base_url('/Dosen/cetakRps/' . $value['id']) ?>">Cetak</a></td>
                                 <?php endif; ?>
                             </tr>
 

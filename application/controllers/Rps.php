@@ -80,4 +80,10 @@ class Rps extends CI_Controller
         $data['rpp'] = $this->db->get_where('rpp', ['id_rps' => $id])->result_array();
         $this->load->view('cetak_rps.php', $data);
     }
+    public function hapusRPP($id)
+    {
+        $this->Rps_m->hapusRPS($id);
+        $this->session->set_flashdata('message', 'RPP Berhasil dihapus!');
+        redirect('Admin/list_rps');
+    }
 }

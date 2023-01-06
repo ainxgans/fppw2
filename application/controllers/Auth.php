@@ -51,6 +51,12 @@ class Auth extends CI_Controller
                             redirect('login');
                         }
                     } else {
+                        $data = [
+                            'id' => $user['id'],
+                            'nama' => $user['nama'],
+                            'akses' => $user['akses']
+                        ];
+                        $this->session->set_userdata($data);
                         redirect('Mahasiswa');
                     }
                 } else {

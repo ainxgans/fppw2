@@ -2,13 +2,9 @@
 
 class Rps_m extends CI_Model
 {
-    public function list($id)
+    public function hapusRPP($id)
     {
-        return $this->db->get_where('matkul', ['id_dosen' => $id])->result_array();
-    }
-
-    public function insert($table, $isi)
-    {
-        $this->db->insert($table, $isi);
+        $this->db->where('id', $id);
+        $this->db->delete('rpp');
     }
 }

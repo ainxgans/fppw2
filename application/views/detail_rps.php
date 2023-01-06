@@ -49,7 +49,21 @@
                 </div>
             </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
             <!-- Unit unit pembelajaran awal -->
+
+
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
@@ -85,7 +99,7 @@
                                                     <td><?= $u['mtd_nilai'] ?></td>
                                                     <td><?= $u['bahan_ajar'] ?></td>
                                                     <td>
-                                                        <a href="#" class="btn btn-sm btn-outline-danger">Hapus</a>
+                                                    <a href="<?= base_url('Rps/hapusRPP/') . $r['id_rpp']; ?>" class="btn btn-danger"><i class="bi bi-trash-fill"></a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
@@ -136,22 +150,22 @@
 
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
-                                                                <label for="waktu">Waktu : </label>
-                                                                <input type="number" name="waktu" id="waktu" class="form-control" placeholder="Waktu">
+                                                                <label for="waktu">Waktu (dalam menit) : </label>
+                                                                <input type="number" name="waktu" id="waktu" class="form-control" placeholder="120">
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
                                                                 <label for="mtd_nilai">Metode nilai :</label>
-                                                                <input class="form-control" type="number" name="mtd_nilai" id="mtd_nilai" placeholder="Metode nilai">
+                                                                <input class="form-control" type="text" name="mtd_nilai" id="mtd_nilai" placeholder="Metode nilai">
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
                                                                 <label for="bahan_ajar">Bahan ajar : </label>
-                                                                <input class="form-control" type="number" name="bahan_ajar" id="bahan_ajar" placeholder="Bahan ajar">
+                                                                <input class="form-control" type="text" name="bahan_ajar" id="bahan_ajar" placeholder="Bahan ajar">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -175,7 +189,33 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <!-- Tugas dan Aktivitas -->
+
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
@@ -208,6 +248,7 @@
                                                     <td><?= $t['bobot']; ?></td>
                                                     <td><?= $t['kriteria_nilai']; ?></td>
                                                     <td><?= $t['indikator_nilai']; ?></td>
+                                                    
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>
@@ -290,7 +331,34 @@
                     </div>
                 </div>
             </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <!-- Rencana Pelaksanaan Pembelajaran -->
+
             <div class="card">
                 <div class="card-content">
                     <div class="card-body">
@@ -318,7 +386,7 @@
                                         <?php foreach ($rpp as $r) : ?>
                                             <tr>
                                                 <td><?= $i++; ?></td>
-                                                <td><?= $r['minggu']; ?></td>
+                                                <td>Minggu ke-<?= $r['minggu']; ?></td>
                                                 <td><?= $r['km_akhir']; ?></td>
                                                 <td><?= $r['indikator']; ?></td>
                                                 <td><?= $r['topik']; ?></td>
@@ -326,16 +394,17 @@
                                                 <td><?= $r['waktu']; ?></td>
                                                 <td><?= $r['penilaian']; ?></td>
                                                 <td>
+                                                    <a href="<?= base_url('Rps/hapusRPP/') . $r['id_rpp']; ?>" class="btn btn-danger"><i class="bi bi-trash-fill"></a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
-                                <button type="button" class="btn btn-outline-primary block float-end" data-bs-toggle="modal" data-bs-target="#modal2">
+                                <button type="button" class="btn btn-outline-primary block float-end" data-bs-toggle="modal" data-bs-target="#modal3">
                                     Tambah RPP
                                 </button>
-                                <div class="modal modal-xl fade text-left" id="modal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+                                <div class="modal modal-xl fade text-left" id="modal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -384,7 +453,7 @@
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
                                                                 <label for="minggu">minggu : </label>
-                                                                <input type="number" name="minggu" id="minggu" class="form-control" placeholder="minggu">
+                                                                <input type="number" name="minggu" id="minggu" class="form-control" placeholder="Minggu ke-">
                                                             </div>
                                                         </div>
 
@@ -394,8 +463,6 @@
                                                                 <input type="number" name="waktu" id="waktu" class="form-control" placeholder="Waktu">
                                                             </div>
                                                         </div>
-
-
                                                     </div>
                                             </div>
                                             <div class="modal-footer">
