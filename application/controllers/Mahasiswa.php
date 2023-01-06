@@ -7,9 +7,6 @@ class Mahasiswa extends CI_Controller
     {
         parent::__construct();
         $this->load->model('user_m');
-        $this->load->model('Mahasiswa_m');
-        $this->load->library('form_validation');
-        
     }
     public function index()
     {
