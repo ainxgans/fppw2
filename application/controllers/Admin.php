@@ -69,7 +69,7 @@ class Admin extends CI_Controller
                 'nama' => htmlspecialchars($this->input->post('nama', true)),
                 'email' => htmlspecialchars($this->input->post('email', true)),
             ];
-            $this->Admin_m->edit($table, $data, $id);
+            $this->Admin_m->editDosen($table, $data, $id);
             $this->session->set_flashdata('message', 'Dosen berhasil diubah!');
             redirect('Admin/');
         }

@@ -69,6 +69,7 @@ class Dosen extends CI_Controller
                 'referensi' => $this->input->post('referensi')
             ];
             $this->Dosen_m->tambah($table, $isi);
+            $this->session->set_flashdata('message', 'RPS berhasil ditambahkan!');
             redirect('dosen/listRps');
         }
     }
@@ -114,7 +115,8 @@ class Dosen extends CI_Controller
                 'bahan_ajar' => $this->input->post('bahan_ajar')
             ];
             $this->Dosen_m->tambah($table, $isi);
-            redirect('dosen/detailRps' . $id);
+            $this->session->set_flashdata('message', 'Unit Pembelajaran berhasil ditambahkan!');
+            redirect('dosen/detailRps/' . $id);
         }
     }
     public function tambahTugas($id)
@@ -140,7 +142,8 @@ class Dosen extends CI_Controller
                 'indikator_nilai' => $this->input->post('indikator_nilai')
             ];
             $this->Dosen_m->tambah($table, $isi);
-            redirect('dosen/detailRps' . $id);
+            $this->session->set_flashdata('message', 'Tugas berhasil ditambahkan!');
+            redirect('dosen/detailRps/' . $id);
         }
     }
     public function tambahRpp($id)
@@ -167,7 +170,8 @@ class Dosen extends CI_Controller
                 'penilaian' => $this->input->post('penilaian')
             ];
             $this->Dosen_m->tambah($table, $isi);
-            redirect('dosen/detailRps' . $id);
+            $this->session->set_flashdata('message', 'Rencana Pelaksanaan Pembelajaran berhasil ditambahkan!');
+            redirect('dosen/detailRps/' . $id);
         }
     }
     public function cetakRps($id)

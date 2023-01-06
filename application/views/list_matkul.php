@@ -14,7 +14,7 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Kode</th>
+                                <th>Kode Matkul</th>
                                 <th>Nama Mata Kuliah</th>
                                 <th>Semester</th>
                                 <th>SKS</th>
