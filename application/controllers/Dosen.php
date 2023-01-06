@@ -177,12 +177,32 @@ class Dosen extends CI_Controller
     }
     public function cetakRps($id)
     {
+        $this->load->library('pdf');
         $data['rps'] = $this->db->get_where('rps', ['id' => $id])->row_array();
         $data['matkul'] = $this->db->get_where('matkul', ['kode' => $data['rps']['id_matkul']])->row_array();
         $data['dosen'] = $this->db->get_where('users', ['id' => $data['rps']['id_dosen']])->row_array();
         $data['unit'] = $this->db->get_where('unit_pembelajaran', ['id_rps' => $id])->result_array();
         $data['tugas'] = $this->db->get_where('tugas', ['id_rps' => $id])->result_array();
         $data['rpp'] = $this->db->get_where('rpp', ['id_rps' => $id])->result_array();
+        $this->pdf->setPaper('A4', 'landscape');
+        $this->pdf->filename = "laporan-petanikode.pdf";
+        $this->pdf->load_view('cetak_rps.php', $data);
         $this->load->view('cetak_rps.php', $data);
+    }
+    public function laporan_pdf()
+    {
+
+        $data = array(
+            "dataku" => array(
+                "nama" => "Petani Kode",
+                "url" => "http://petanikode.com"
+            )
+        );
+
+        $this->load->library('pdf');
+
+        $this->pdf->setPaper('A4', 'landscape');
+        $this->pdf->filename = "laporan-petanikode.pdf";
+        $this->pdf->load_view('cetak_rps.php', $data);
     }
 }
