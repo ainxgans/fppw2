@@ -28,8 +28,8 @@
                                 <td><?= $value['nama'] ?></td>
                                 <td><?= $value['email'] ?></td>
                                 <td>
-                                    <a href="<?= base_url('/Admin/editDosen/' . $value['id']) ?>" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
-                                    <a href="<?= base_url('/Admin/hapusDosen/' . $value['id']) ?>" class="btn btn-danger btn-sm tombol-hapus"><i class="bi bi-trash"></i></a>
+                                    <a href="<?= base_url('/Admin/editDosen/' . $value['id']) ?>" class="btn btn-primary"><span class="mb-3"><i class="bi bi-pencil-fill"></span></i></a>
+                                    <a href="<?= base_url('/Admin/hapusDosen/' . $value['id']) ?>" class="btn btn-danger tombol-hapus"><span class="mb-3"><i class="bi bi-trash-fill"></span></i></a>
                                 </td>
                             </tr>
 
@@ -48,30 +48,34 @@
                                 </h5>
                             </div>
                             <div class="modal-body">
-                                <form action="<?= base_url('/Admin/tambahDosen/') ?>" method="post">
+                                <form action="<?= base_url('/Admin/tambahDosen') ?>" method="post">
                                     <div class="row">
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="id">NIK</label>
                                                 <input type="text" class="form-control" placeholder="NIK" name="id" />
+                                                <?= form_error('id', '<small class="text-danger pl-3">', '</small>'); ?>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="nama">Nama</label>
                                                 <input type="text" class="form-control" placeholder="Nama" name="nama" />
+                                                <?= form_error('nama', '<small class="text-danger pl-3">', '</small>'); ?>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="tgl_penyusun">Email</label>
                                                 <input type="email" class="form-control" placeholder="E-mail" name="email" />
+                                                <?= form_error('email', '<small class="text-danger pl-3">', '</small>'); ?>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="no_doc">Password</label>
                                                 <input type="password" id="no_doc" class="form-control" placeholder="Password" name="password" />
+                                                <?= form_error('password', '<small class="text-danger pl-3">', '</small>'); ?>
                                             </div>
                                         </div>
                                     </div>

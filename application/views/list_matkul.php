@@ -40,8 +40,9 @@
                                 <td><?= $value['sks'] ?></td>
                                 <?php if ($user['akses'] == 1) : ?>
                                     <td><?= $value['nama'] ?></td>
-                                    <td><a href="<?= base_url('/Admin/hapusMatkul/' . $value['kode']) ?>">Hapus</a>
-                                        <a href="<?= base_url('/Admin/editMatkul/' . $value['kode']) ?>">Edit</a>
+                                    <td>
+                                        <a href="<?= base_url('/Admin/editMatkul/' . $value['kode']) ?>" class="btn btn-primary"><span class="mb-3"><i class="bi bi-pencil-fill"></span></i></a>
+                                        <a href="<?= base_url('/Admin/hapusMatkul/' . $value['kode']) ?>" class="btn btn-danger tombol-hapus"><span class="mb-3"><i class="bi bi-trash-fill"></span></i></a>
                                     </td>
                                 <?php endif; ?>
                                 <?php if ($user['akses'] == 2) : ?>
@@ -68,70 +69,7 @@
                                     </h5>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="<?= base_url('/Admin/tambahMatkul/') ?>" method="post">
-                                        <div class="row">
-                                            <div class="col-md-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="kode">Kode</label>
-                                                    <input type="text" class="form-control" placeholder="kode" name="kode" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="nm_matkul">Nama Matkul</label>
-                                                    <input type="text" class="form-control" placeholder="Nama Matkul" name="nm_matkul" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="id_dosen">Dosen</label>
-                                                    <select class="form-select" name="id_dosen" id="">
-                                                        <option value="">Pilih Dosen</option>
-                                                        <?php foreach ($dosen as $d) : ?>
-                                                            <option value="<?= $d['id'] ?>"><?= $d['nama'] ?></option>
-                                                        <?php endforeach; ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="semester">Semester</label>
-                                                    <input type="text" class="form-control" placeholder="Semester" name="semester" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="sks">SKS</label>
-                                                    <select name="sks" class="form-control">
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                    </select>
-                                                </div>
-                                            </div>
 
-                                            <div class="col-md-6 col-12">
-                                                <div class="form-group">
-                                                    <label for="penilaian">Penilaian</label>
-                                                    <textarea name="penilaian" id="" cols="30" rows="10" class="ckeditor"></textarea>
-                                                </div>
-                                            </div>
-                                            <script>
-                                                CKEDITOR.replace('penilaian');
-                                            </script>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn" data-bs-dismiss="modal">
-                                                <i class="bx bx-x d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Tutup</span>
-                                            </button>
-                                            <button type="submit" class="btn btn-primary ml-1" data-bs-dismiss="modal">
-                                                <i class="bx bx-check d-block d-sm-none"></i>
-                                                <span class="d-none d-sm-block">Tambah</span>
-                                            </button>
-                                        </div>
-                                    </form>
                                 </div>
                             </div>
                         </div>
