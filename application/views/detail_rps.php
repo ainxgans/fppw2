@@ -99,7 +99,7 @@
                                                     <td><?= $u['mtd_nilai'] ?></td>
                                                     <td><?= $u['bahan_ajar'] ?></td>
                                                     <td>
-                                                    <a href="<?= base_url('Rps/hapusRPP/') . $r['id_rpp']; ?>" class="btn btn-danger"><i class="bi bi-trash-fill"></a>
+                                                        <a href="<?= base_url('Rps/hapusUnit_pembelajaran/') . $u['id']; ?>" class="btn btn-danger"><i class="bi bi-trash-fill"></a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
@@ -248,7 +248,10 @@
                                                     <td><?= $t['bobot']; ?></td>
                                                     <td><?= $t['kriteria_nilai']; ?></td>
                                                     <td><?= $t['indikator_nilai']; ?></td>
-                                                    
+                                                    <td>
+                                                        <a href="<?= base_url('Rps/hapusTugas/') . $t['id']; ?>" class="btn btn-danger"><i class="bi bi-trash-fill"></a>
+                                                    </td>
+
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>
@@ -394,7 +397,7 @@
                                                 <td><?= $r['waktu']; ?></td>
                                                 <td><?= $r['penilaian']; ?></td>
                                                 <td>
-                                                    <a href="<?= base_url('Rps/hapusRPP/') . $r['id_rpp']; ?>" class="btn btn-danger"><i class="bi bi-trash-fill"></a>
+                                                    <a href="<?= base_url('Rps/hapusRPP/') . $r['id']; ?>" class="btn btn-danger"><i class="bi bi-trash-fill"></a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>

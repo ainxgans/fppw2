@@ -10,8 +10,7 @@ class Dosen extends CI_Controller
         $this->load->model('User_m');
         $this->load->library('form_validation');
         $this->load->model('Dosen_m');
-        $this->load->model('Admin_m');
-        if (!$this->session->userdata('id') || ($this->session->userdata('akses') != '2')) {
+        if (!$this->session->userdata('id') || ($this->session->userdata('akses') == '3')) {
             redirect('Auth');
         }
     }
@@ -186,23 +185,25 @@ class Dosen extends CI_Controller
         $data['rpp'] = $this->db->get_where('rpp', ['id_rps' => $id])->result_array();
         $this->pdf->setPaper('A4', 'landscape');
         $this->pdf->filename = "RPS.pdf";
-        $this->pdf->load_view('cetak_rps.php', $data);
+        $this->pdf->load_view('cetak.php', $data);
         $this->load->view('cetak_rps.php', $data);
     }
-    public function laporan_pdf()
+    public function hapusRPP($id)
     {
-
-        $data = array(
-            "dataku" => array(
-                "nama" => "Petani Kode",
-                "url" => "http://petanikode.com"
-            )
-        );
-
-        $this->load->library('pdf');
-
-        $this->pdf->setPaper('A4', 'landscape');
-        $this->pdf->filename = "laporan-petanikode.pdf";
-        $this->pdf->load_view('cetak_rps.php', $data);
+        $this->Rps_m->hapusRPP($id);
+        $this->session->set_flashdata('message', 'RPP Berhasil dihapus!');
+        redirect('Dosen/listRps/');
+    }
+    public function hapusTugas($id)
+    {
+        $this->Rps_m->hapusTugas($id);
+        $this->session->set_flashdata('message', 'RPP Berhasil dihapus!');
+        redirect('Dosen/listRps/');
+    }
+    public function hapusUnit_pembelajaran($id)
+    {
+        $this->Rps_m->hapusUnit_pembelajaran($id);
+        $this->session->set_flashdata('message', 'Unit Pembelajaran Berhasil dihapus!');
+        redirect('Dosen/listRps/');
     }
 }

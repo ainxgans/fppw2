@@ -6,23 +6,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Cetak RPS</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
-  <link rel="stylesheet" href="index.css">
 </head>
 <!-- <?php var_dump($rps, "============", $dosen, "============", $matkul, "============", $unit, "============", $tugas, "============", $rpp, "============") ?> -->
 <style>
   table {
     border-collapse: collapse;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+  }
+
+  .tanggal,
+  .dosen,
+  .universitas {
+    text-align: center;
+  }
+
+  .universitas {
+    font-size: 25px;
+    font-weight: 700;
   }
 </style>
 
 <body>
-  <div class="container mt-5">
+  <div class="container">
     <div class="row">
       <div class="col">
         <table class="table table-bordered text-center" border="1">
           <thead>
             <tr>
-              <th scope="col" colspan="4" class="border border-dark border-end-0 border-start-0">
+              <th scope="col" colspan="4" class="border border-dark border-end-0 border-start-0 fs-1 judul">
                 RENCANA PEMBELAJARAN SEMESTER (RPS)
               </th>
             </tr>
@@ -30,7 +42,7 @@
           <tbody>
             <tr>
               <th scope="row" colspan="4" class="border border-dark border-end-0 border-start-0">
-                <img src="image 1.png" alt="" />
+                <img src="<?= base_url() ?>assets/images/amikom.jpg" class="img" width="200px" />
               </th>
             </tr>
             <tr>
@@ -45,18 +57,15 @@
             </tr>
             <tr>
               <th scope="col" class="border border-dark border-start-0">Nomor</td>
-              <th scope="col" class="border border-dark ">Tgl.Berlaku</td>
-              <th scope="col" class="border border-dark">Tgl.Disusun</td>
+              <th scope="col" class="border border-dark">Tgl.Berlaku</th>
+              <th scope="col" class="border border-dark">Tgl.Disusun</th>
               <th scope="col" class="border border-dark border-end-0">Revisi</td>
             </tr>
-            <tr>
+            <tr class="tanggal">
               <td class="border border-dark border-start-0">RPS-DT-<?= $rps['nomor_rps'] ?></td>
               <td class="border border-dark "><?= $rps['tgl_berlaku'] ?></td>
               <td class="border border-dark "><?= $rps['tgl_disusun'] ?></td>
               <td class="border border-dark border-end-0">00</td>
-            </tr>
-            <tr>
-              <td class="border-start-0" colspan="4"></td>
             </tr>
             <tr>
               <th scope="col" class="w-25 border border-dark border-start-0">Disetujui Oleh,DekanIlmuKomputer</th>
@@ -64,7 +73,7 @@
               <th scope="col" class="w-25 border border-dark">Disusunoleh,</th>
               <th scope="col" class="w-25 border border-dark border-end-0">Dikendalikan oleh,SekretarisProdi D3TeknikInformatika</th>
             </tr>
-            <tr>
+            <tr class="dosen">
               <td scope="row" class="w-25 h-25 border border-dark border-start-0 "><br><br><br><u>Hanif Al Fatta, M.Kom</u><br>NIK. 190302096</td>
               <td class="w-25 h-25 border border-dark "><br><br><br><u>Barka Satya, M.Kom</u><br>NIK. 190302096</td>
               <td class="w-25 h-25 border border-dark "><br><br><br><u>???</u><br>???</td>
@@ -72,13 +81,7 @@
             </tr>
           </tbody>
         </table>
-      </div>
-    </div>
-  </div>
-  <h3 class="text-center mb-5"><b>Universitas Amikom<br> Yogyakarta<br>2022</b></h3>
-  <div class="container">
-    <div class="row">
-      <div class="col">
+        <h3 class="mb-5 universitas"><b>Universitas Amikom<br> Yogyakarta<br>2022</b></h3>
         <!-- table bagian atas -->
         <table class="table table-bordered">
           <thead>
@@ -87,7 +90,7 @@
               <th rowspan="2" class="w-50 border-dark border">RENCANA PEMBELAJARAN SEMESTER<br>PROGRAM STUDI: D3 TEKNIK INFORMATIKA<br><br><br>MATAKULIAH PENDIDIKAN PANCASILA
                 (DT001)
               </th>
-              <th class="border-dark border w-auto pinggir text-end"><i>nomor</i><br><i>tgl.Disusun<br>Revisi</i></th>
+              <th class="border-dark border w-auto text-end"><i>nomor</i><br><i>tgl.Disusun<br>Revisi</i></th>
               <td class=" border-dark border  w-auto text-start"><i>: RPS-DT-001</i><br><i>: 20 September 2022<br>: 00</i></td>
             </tr>
             <tr>
