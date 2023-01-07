@@ -25,7 +25,7 @@
                                 <td><?= $value['semester'] ?></td>
                                 <td><?= $value['sks'] ?></td>
                                 <td>
-                                    <a target="_blank" href="<?= base_url('/Rps/cobaCetak/' . $value['id']) ?>">Cetak coba</a>
+                                    <a href="<?= base_url('/Rps/mpdf/' . $value['id']) ?>">Cetak</a>
                                     <?php if ($user['akses'] == 2) : ?>
                                         <a target="_blank" href="<?= base_url('/Rps/cetakRps/' . $value['id']) ?>" class="btn btn-primary">Cetak</a>
                                     <?php endif; ?>

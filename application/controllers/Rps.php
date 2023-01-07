@@ -82,20 +82,10 @@ class Rps extends CI_Controller
         $this->pdf->load_view('cetak.php', $data);
         $this->pdf->load->view('cetak.php', $data);
     }
-    public function cobaCetak($id)
+    public function mpdf()
     {
-        $this->load->library('pdf');
-        $data['rps'] = $this->db->get_where('rps', ['id' => $id])->row_array();
-        $data['matkul'] = $this->db->get_where('matkul', ['kode' => $data['rps']['id_matkul']])->row_array();
-        $data['dosen'] = $this->db->get_where('users', ['id' => $data['rps']['id_dosen']])->row_array();
-        $data['unit'] = $this->db->get_where('unit_pembelajaran', ['id_rps' => $id])->result_array();
-        $data['tugas'] = $this->db->get_where('tugas', ['id_rps' => $id])->result_array();
-        $data['rpp'] = $this->db->get_where('rpp', ['id_rps' => $id])->result_array();
-
-        $this->load->view('cetak.php', $data);
-        // $this->load->library('pdf');
-        // $this->pdf->set_option('isRemoteEnabled', true);
-        // $this->pdf->setPaper('A4', 'landscape');
-        // $this->pdf->load_view('cetak.php', $data);
+        $mpdf = new mPDF();
+        $mpdf->WriteHTML('<h1>Hello world!</h1>');
+        $mpdf->Output();
     }
 }
