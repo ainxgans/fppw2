@@ -14,13 +14,6 @@
 </footer>
 </div>
 </div>
-<!-- <script>
-    CKEDITOR.replace('gb_umum');
-    CKEDITOR.replace('capaian');
-    CKEDITOR.replace('referensi');
-    CKEDITOR.replace('prasyarat');
-</script> -->
-<!-- <script src="<?= base_url('/assets/') ?>ckeditor/ckeditor.js"></script> -->
 <script src="<?= base_url('/assets/') ?>js/app.js"></script>
 <script src="<?= base_url('/assets/') ?>js/bootstrap.js"></script>
 <script src="<?= base_url('/assets/') ?>extensions/simple-datatables/umd/simple-datatables.js"></script>
