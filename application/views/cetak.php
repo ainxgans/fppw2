@@ -99,12 +99,20 @@
             top: 0px !important;
         }
 
+        .bg-header {
+            background-color: #E6E6FF;
+        }
+
         @page {
             margin-top: 1cm;
         }
 
         body {
             margin-top: 3cm;
+        }
+
+        .pagenum:before {
+            content: counter(page) ' dari ' counter(pages);
         }
     </style>
 </head>
@@ -174,7 +182,7 @@
         </tr>
         <tr>
             <td class="auto rata-kanan"><i>Halaman</i></td>
-            <td class="auto">: Hal 2 Dari 9</td>
+            <td class="auto"><span class="pagenum"></span></td>
         </tr>
     </table>
     <p class="subjudul">1. Identitas</p>
@@ -233,7 +241,7 @@
 
     <p class="subjudul">5. Unit-Unit Pembelajaran</p>
     <table border="1px solid black">
-        <thead>
+        <thead class="bg-header">
             <th class="kanan">Kemampuan Akhir yang diharapkan</th>
             <th class="kanan">Indikator</th>
             <th class="kanan">Bahan Kajian</th>
@@ -261,7 +269,7 @@
     </table>
     <p class="subjudul"> 6. Tugas dan Aktivitas</p>
     <table>
-        <tr>
+        <tr class="bg-header bawah">
             <th class="kanan">Tugas/Aktivitas</th>
             <th class="kanan">Kemampuan Akhir yang diharapkan</th>
             <th class="kanan">Waktu</th>
@@ -288,7 +296,7 @@
     <p><?= $rps['referensi'] ?></p>
     <h1 style="background: #B3B3B3;" class="subjudul">8. Rencana Pelaksanaan Pembelajaran</h1>
     <table border="1px solid black">
-        <tr>
+        <tr class="bg-header">
             <th class="kanan">Minggu/Pertemuan</th>
             <th class="kanan">Kemampuan Akhir yang diharapkan</th>
             <th class="kanan">Indikator</th>

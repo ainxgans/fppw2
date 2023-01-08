@@ -71,7 +71,7 @@ class Rps extends CI_Controller
     {
         $this->load->library('pdf');
         $this->pdf->set_option('isRemoteEnabled', true);
-
+        $this->pdf->set_option('isPhpEnabled', true);
         $data['rps'] = $this->db->get_where('rps', ['id' => $id])->row_array();
         $data['matkul'] = $this->db->get_where('matkul', ['kode' => $data['rps']['id_matkul']])->row_array();
         $data['dosen'] = $this->db->get_where('users', ['id' => $data['rps']['id_dosen']])->row_array();
