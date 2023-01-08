@@ -192,18 +192,18 @@ class Dosen extends CI_Controller
     {
         $this->Rps_m->hapusRPP($id);
         $this->session->set_flashdata('message', 'RPP Berhasil dihapus!');
-        redirect('Dosen/listRps/');
+        redirect('Dosen/listRps/' . $id);
     }
     public function hapusTugas($id)
     {
         $this->Rps_m->hapusTugas($id);
         $this->session->set_flashdata('message', 'RPP Berhasil dihapus!');
-        redirect('Dosen/listRps/');
+        redirect('Dosen/listRps/' . $id);
     }
     public function hapusUnit_pembelajaran($id)
     {
         $this->Rps_m->hapusUnit_pembelajaran($id);
         $this->session->set_flashdata('message', 'Unit Pembelajaran Berhasil dihapus!');
-        redirect('Dosen/listRps/');
+        redirect('Dosen/listRps/' . $id);
     }
 }

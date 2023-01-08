@@ -36,7 +36,7 @@
             </div>
             <div class="form-group">
               <label for="penilaian">Penilaian</label>
-              <textarea name="penilaian" id="" cols="30" rows="10" class="ckeditor"><?= $matkul['penilaian'] ?></textarea>
+              <textarea name="penilaian" id="" cols="30" rows="10" class="form-control"><?= $matkul['penilaian'] ?></textarea>
               <?= form_error('penilaian', '<small class="text-danger">', '</small>'); ?>
             </div>
 

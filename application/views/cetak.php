@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         table {
-            border-collapse: unset !important;
+            border-collapse: collapse !important;
             width: 100%;
             border: 0.5px solid black;
         }
@@ -54,11 +54,6 @@
             border: 1px solid black;
         }
 
-        .border-kiri-kanan {
-            border-right: 1px solid black;
-            border-left: 1px solid black;
-        }
-
         .tengah {
             text-align: center;
         }
@@ -70,6 +65,10 @@
 
         .auto {
             width: auto;
+        }
+
+        .rata-kanan {
+            text-align: right;
         }
 
         .kiri {
@@ -85,14 +84,21 @@
             border-collapse: collapse;
             width: 100%;
         }
+
+        .bawah {
+            border-bottom: 1px solid black;
+        }
+
+        .page-break {
+            page-break-after: always;
+        }
     </style>
 </head>
 
 <body>
-    <table width="100%" class="border-none" style="margin-top: 50px;">
+    <table width="100%" class="border-none" style="margin-top: 20px;">
         <tr>
             <th colspan=" 4" style="font-size: 35px;" class="bawah"><b>RENCANA PEMBELAJARAN SEMEESTER(RPS)</b></th>
-            <hr>
         </tr>
         <tr>
             <th style="padding: 20px;" colspan="4"><img src="<?= base_url('/assets/images/logoamikom.png') ?>" alt="" width="30%"></th>
@@ -141,15 +147,19 @@
 
     </table>
     <h1 class="tengah">Universitas Amikom Yogyakarta<br>Yogyakarta<br>2023</h1>
-    <table width="100%" border="1" class="header">"><img src="<?= base_url('/assets/images/logoamikom.png') ?>" alt="" width="80%"></td>
-        <td rowspan="2" style="width: 50%;">RENCANA PEMBELAJARAN SEMESTER<br>PROGRAM STUDI: D3 TEKNIK INFORMATIKA MATAKULIAH <?= $matkul['nm_matkul'] ?>
-            (DT-<?= $matkul['kode'] ?>)
-        </td>
-        <td class="revisi"><i>nomor</i><br><i>tgl.Disusun<br>Revisi</i></td>
-        <td style="width: auto;"><i>: RPS-DT-001</i><br><i>: 20 September 2022<br>: 00</i></td>
+    <p class="page-break"></p>
+    <table width="100%" border="1" class="header">
+        <tr>
+            <td rowspan="2" class="tengah"><img src="<?= base_url('/assets/images/logoamikom.png') ?>" alt="" width="80%"></td>
+            <td rowspan="2" style="width: 50%;" class="tengah">RENCANA PEMBELAJARAN SEMESTER<br>PROGRAM STUDI: D3 TEKNIK INFORMATIKA MATAKULIAH <?= $matkul['nm_matkul'] ?>
+                (DT-<?= $matkul['kode'] ?>)
+            </td>
+
+            <td class="revisi rata-kanan"><i>nomor</i><br><i>tgl.Disusun<br>Revisi</i></td>
+            <td style="width: auto;"><i>: RPS-DT-001</i><br><i>: 20 September 2022<br>: 00</i></td>
         </tr>
         <tr>
-            <td class="auto kanan"><i>Halaman</i></td>
+            <td class="auto rata-kanan"><i>Halaman</i></td>
             <td class="auto">: Hal 2 Dari 9</td>
         </tr>
     </table>
@@ -163,7 +173,8 @@
         </tr>
         <tr>
             <th style="width: 15%;text-align: left; padding-left:10px;" scope="row">Nama & Kode Mata Kuliah</th>
-            <td style="width: 35%; padding-left:10px;"><?= $matkul['nm_matkul'] ?> <<?= $matkul['kode'] ?>>
+            <td style="width: 35%; padding-left:10px;">&nbsp;<?= $matkul['nm_matkul'] ?>( <?= $matkul['kode'] ?> )&nbsp;
+
             </td>
             <th style="width: 8%; padding-left:10px;text-align: left;" class="border-dark border">SKS</th>
             <td style="width: 25%; padding-left:10px;" colspan="5"><?= $matkul['sks'] ?></td>
@@ -207,8 +218,8 @@
     <p><?= $rps['prasyarat'] ?></p>
 
     <p class="subjudul">5. Unit-Unit Pembelajaran</p>
-    <table>
-        <tr">
+    <table border="1px solid black">
+        <thead>
             <th class="kanan">Kemampuan Akhir yang diharapkan</th>
             <th class="kanan">Indikator</th>
             <th class="kanan">Bahan Kajian</th>
@@ -216,7 +227,8 @@
             <th class="kanan">Waktu</th>
             <th class="kanan">Metode Penilaian</th>
             <th>Bahan Ajar</th>
-            </tr>
+        </thead>
+        <tbody>
             <?php foreach ($unit as $value) {
             ?>
                 <tr>
@@ -231,6 +243,7 @@
             <?php
             }
             ?>
+        </tbody>
     </table>
     <p class="subjudul"> 6. Tugas dan Aktivitas</p>
     <table>
@@ -260,7 +273,7 @@
     <h1 style="background: #B3B3B3;" class="subjudul">7. Referensi</h1>
     <p><?= $rps['referensi'] ?></p>
     <h1 style="background: #B3B3B3;" class="subjudul">8. Rencana Pelaksanaan Pembelajaran</h1>
-    <table>
+    <table border="1px solid black">
         <tr>
             <th class="kanan">Minggu/Pertemuan</th>
             <th class="kanan">Kemampuan Akhir yang diharapkan</th>
@@ -273,7 +286,7 @@
         <?php
         foreach ($rpp as $value) {
         ?>
-            <tr>
+            <tr class="break">
                 <td class="kanan"><?= $value['minggu'] ?></td>
                 <td class="kanan"><?= $value['km_akhir'] ?></td>
                 <td class="kanan"><?= $value['indikator'] ?></td>

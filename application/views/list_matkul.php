@@ -45,12 +45,20 @@
                                         <a href="<?= base_url('/Admin/hapusMatkul/' . $value['kode']) ?>" class="btn btn-danger tombol-hapus"><span class="mb-3"><i class="bi bi-trash-fill"></span></i></a>
                                     </td>
                                 <?php endif; ?>
-                                <?php if ($user['akses'] == 2) : ?>
-                                    <td>
-                                        <a href="<?= base_url('/Dosen/tambahRps/' . $value['kode']) ?>" class="btn btn-primary"><span class="mb-3"><i class="bi bi-file-earmark-plus-fill"></span></i>Tambah RPS
-                                        </a>
-                                    </td>
-                                <?php endif; ?>
+                                <td>
+                                    <?php if ($user['akses'] == 2) : ?>
+                                        <?php
+                                        if ($this->db->get_where('rps', ['id_matkul' => $value['kode']])->num_rows() == null) : ?>
+                                            <a href="<?= base_url('/Dosen/tambahRps/' . $value['kode']) ?>" class="btn btn-primary"><span class="mb-3"><i class="bi bi-file-earmark-plus-fill"></span></i>Tambah RPS
+                                            </a>
+                                        <?php endif; ?>
+
+                                        <?php
+                                        if ($this->db->get_where('rps', ['id_matkul' => $value['kode']])->num_rows() !== null) : ?>
+                                            RPS sudah ada
+                                        <?php endif; ?>
+                                    <?php endif; ?>
+                                </td>
                             </tr>
 
                         <?php
@@ -115,12 +123,9 @@
                                             <div class="col-md-6 col-12">
                                                 <div class="form-group">
                                                     <label for="penilaian">Penilaian</label>
-                                                    <textarea name="penilaian" id="" cols="30" rows="10" class="ckeditor"></textarea>
+                                                    <textarea name="penilaian" id="" cols="30" rows="10" class="form-control"></textarea>
                                                 </div>
                                             </div>
-                                            <script>
-                                                CKEDITOR.replace('penilaian');
-                                            </script>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn" data-bs-dismiss="modal">

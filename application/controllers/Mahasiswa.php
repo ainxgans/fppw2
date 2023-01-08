@@ -15,16 +15,94 @@ class Mahasiswa extends CI_Controller
     public function index()
     {
         $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
-        $data['judul'] = "List RPS";
+        $data['judul'] = "Semester 1";
         $this->db->select('matkul.*, users.nama as nama_dosen, rps.*');
         $this->db->from('rps');
         $this->db->join('matkul', 'matkul.kode = rps.id_matkul');
         $this->db->join('users', 'users.id = rps.id_dosen');
+        $this->db->where('matkul.semester', '1');
+
         $data['rps'] = $this->db->get()->result_array();
         $this->load->view('view_header.php', $data);
         $this->load->view('list_rps.php', $data);
         $this->load->view('view_footer.php', $data);
     }
+    public function semester2()
+    {
+        $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
+        $data['judul'] = "Semester 2";
+        $this->db->select('matkul.*, users.nama as nama_dosen, rps.*');
+        $this->db->from('rps');
+        $this->db->join('matkul', 'matkul.kode = rps.id_matkul');
+        $this->db->join('users', 'users.id = rps.id_dosen');
+        $this->db->where('matkul.semester', '2');
+
+
+        $data['rps'] = $this->db->get()->result_array();
+        $this->load->view('view_header.php', $data);
+        $this->load->view('list_rps.php', $data);
+        $this->load->view('view_footer.php', $data);
+    }
+    public function semester3()
+    {
+        $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
+        $data['judul'] = "Semester 3";
+        $this->db->select('matkul.*, users.nama as nama_dosen, rps.*');
+        $this->db->from('rps');
+        $this->db->join('matkul', 'matkul.kode = rps.id_matkul');
+        $this->db->join('users', 'users.id = rps.id_dosen');
+        $this->db->where('matkul.semester', '3');
+
+
+        $data['rps'] = $this->db->get()->result_array();
+        $this->load->view('view_header.php', $data);
+        $this->load->view('list_rps.php', $data);
+        $this->load->view('view_footer.php', $data);
+    }
+    public function semester4()
+    {
+        $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
+        $data['judul'] = "Semester 4";
+        $this->db->select('matkul.*, users.nama as nama_dosen, rps.*');
+        $this->db->from('rps');
+        $this->db->join('matkul', 'matkul.kode = rps.id_matkul');
+        $this->db->join('users', 'users.id = rps.id_dosen');
+        $this->db->where('matkul.semester', '4');
+        $data['rps'] = $this->db->get()->result_array();
+        $this->load->view('view_header.php', $data);
+        $this->load->view('list_rps.php', $data);
+        $this->load->view('view_footer.php', $data);
+    }
+    public function semester5()
+    {
+        $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
+        $data['judul'] = "Semester 5";
+        $this->db->select('matkul.*, users.nama as nama_dosen, rps.*');
+        $this->db->from('rps');
+        $this->db->join('matkul', 'matkul.kode = rps.id_matkul');
+        $this->db->join('users', 'users.id = rps.id_dosen');
+        $this->db->where('matkul.semester', '5');
+        $data['rps'] = $this->db->get()->result_array();
+        $this->load->view('view_header.php', $data);
+        $this->load->view('list_rps.php', $data);
+        $this->load->view('view_footer.php', $data);
+    }
+    public function semester6()
+    {
+        $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
+        $data['judul'] = "Semester 6";
+        $this->db->select('matkul.*, users.nama as nama_dosen, rps.*');
+        $this->db->from('rps');
+        $this->db->join('matkul', 'matkul.kode = rps.id_matkul');
+        $this->db->join('users', 'users.id = rps.id_dosen');
+        $this->db->where('matkul.semester', '6');
+        $data['rps'] = $this->db->get()->result_array();
+        $this->load->view('view_header.php', $data);
+        $this->load->view('list_rps.php', $data);
+        $this->load->view('view_footer.php', $data);
+    }
+
+
     public function cetakRps($id)
     {
         $this->load->library('pdf');

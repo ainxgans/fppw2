@@ -82,10 +82,4 @@ class Rps extends CI_Controller
         $this->pdf->load_view('cetak.php', $data);
         $this->pdf->load->view('cetak.php', $data);
     }
-    public function mpdf()
-    {
-        $mpdf = new mPDF();
-        $mpdf->WriteHTML('<h1>Hello world!</h1>');
-        $mpdf->Output();
-    }
 }

@@ -25,12 +25,19 @@
                                 <td><?= $value['semester'] ?></td>
                                 <td><?= $value['sks'] ?></td>
                                 <td>
-                                    <a href="<?= base_url('/Rps/mpdf/' . $value['id']) ?>">Cetak</a>
-                                    <?php if ($user['akses'] == 2) : ?>
-                                        <a target="_blank" href="<?= base_url('/Rps/cetakRps/' . $value['id']) ?>" class="btn btn-primary">Cetak</a>
-                                    <?php endif; ?>
-                                    <?php if ($user['akses'] == 3) : ?>
-                                        <a target="_blank" href="<?= base_url('/Mahasiswa/cetakRps/' . $value['id']) ?>">Cetak</a>
+                                    <?php if ($user['akses'] == 2 || $user['akses'] == 3) : ?>
+                                        <?php
+                                        $rpp = $this->db->get_where('rpp', ['id_rps' => $value['id']])->num_rows();
+                                        $tugas = $this->db->get_where('tugas', ['id_rps' => $value['id']])->num_rows();
+                                        $unit = $this->db->get_where('unit_pembelajaran', ['id_rps' => $value['id']])->num_rows();
+
+                                        if ($rpp > 0 && $tugas > 0 && $unit > 0) :
+                                        ?>
+                                            <a target="_blank" href="<?= base_url('/Rps/cetakRps/' . $value['id']) ?>" class="btn btn-primary">Cetak</a>
+                                        <?php endif; ?>
+                                        <?php if ($rpp == 0 && $tugas == 0 && $unit == 0) : ?>
+                                            Detail rps belum diisi
+                                        <?php endif; ?>
                                     <?php endif; ?>
                                 </td>
                                 <?php if ($user['akses'] == 2) : ?>

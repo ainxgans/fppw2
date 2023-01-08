@@ -62,7 +62,7 @@
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="gb_umum">Gambaran Umum</label>
-                                        <textarea name="gb_umum" id="gb_umum" class="ckeditor"></textarea>
+                                        <textarea name="gb_umum" id="gb_umum" class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
@@ -70,19 +70,19 @@
 
                                         <label for="cp_pembelajaran">Capaian Pembelajaran</label>
 
-                                        <textarea name="cp_pembelajaran" id="capaian" class="ckeditor"></textarea>
+                                        <textarea name="cp_pembelajaran" id="capaian" class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="prasyarat">Prasyarat</label>
-                                        <textarea name="prasyarat" id="prasyarat" class="ckeditor"></textarea>
+                                        <textarea name="prasyarat" id="prasyarat" class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="referensi">Referensi</label>
-                                        <textarea name="referensi" id="referensi" class="ckeditor"></textarea>
+                                        <textarea name="referensi" id="referensi" class="x"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -97,9 +97,3 @@
         </div>
     </div>
 </section>
-<script>
-    CKEDITOR.replace('gb_umum');
-    CKEDITOR.replace('capaian');
-    CKEDITOR.replace('referensi');
-    CKEDITOR.replace('prasyarat');
-</script>

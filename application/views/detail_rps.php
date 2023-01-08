@@ -99,7 +99,7 @@
                                                     <td><?= $u['mtd_nilai'] ?></td>
                                                     <td><?= $u['bahan_ajar'] ?></td>
                                                     <td>
-                                                        <a href="<?= base_url('Rps/hapusUnit_pembelajaran/') . $u['id']; ?>" class="btn btn-danger"><i class="bi bi-trash-fill"></a>
+                                                        <a href="<?= base_url('Dosen/hapusUnit_pembelajaran/') . $u['id']; ?>" class="btn btn-danger tombol-hapus"><i class="bi bi-trash-fill"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
@@ -123,21 +123,21 @@
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
                                                                 <label for="km_akhir_p">Kemampuan akhir praktikum : </label>
-                                                                <textarea id="km_akhir_p" type="text" name="km_akhir_p" class="ckeditor" placeholder="Kemampuan akhir praktikum"></textarea>
+                                                                <textarea id="km_akhir_p" type="text" name="km_akhir_p" class="form-control" placeholder="Kemampuan akhir praktikum"></textarea>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
                                                                 <label for="indikator">Indikator : </label>
-                                                                <textarea id="indikator" type="text" name="indikator" class="ckeditor" placeholder="Indikator"></textarea>
+                                                                <textarea id="indikator" type="text" name="indikator" class="form-control" placeholder="Indikator"></textarea>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
                                                                 <label for="bhn_kajian">Bahan kajian : </label>
-                                                                <textarea id="bhn_kajian" type="text" name="bhn_kajian" class="ckeditor" placeholder="Bahan kajian"></textarea>
+                                                                <textarea id="bhn_kajian" type="text" name="bhn_kajian" class="form-control" placeholder="Bahan kajian"></textarea>
                                                             </div>
                                                         </div>
 
@@ -249,7 +249,7 @@
                                                     <td><?= $t['kriteria_nilai']; ?></td>
                                                     <td><?= $t['indikator_nilai']; ?></td>
                                                     <td>
-                                                        <a href="<?= base_url('Rps/hapusTugas/') . $t['id']; ?>" class="btn btn-danger"><i class="bi bi-trash-fill"></a>
+                                                        <a href="<?= base_url('Dosen/hapusTugas/') . $t['id']; ?>" class="tombol-hapus btn btn-danger"><i class="bi bi-trash-fill"></i></a>
                                                     </td>
 
                                                 </tr>
@@ -274,28 +274,28 @@
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
                                                                 <label for="tugas">Tugas : </label>
-                                                                <textarea name="tugas" id="tugas" class="ckeditor" placeholder="tugas"></textarea>
+                                                                <textarea name="tugas" id="tugas" class="form-control" placeholder="tugas"></textarea>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
                                                                 <label for="km_akhir">Kemampuan akhir : </label>
-                                                                <textarea id="km_akhir" type="text" name="km_akhir" class="ckeditor" placeholder="Kemampuan akhir "></textarea>
+                                                                <textarea id="km_akhir" type="text" name="km_akhir" class="form-control" placeholder="Kemampuan akhir "></textarea>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
                                                                 <label for="indikator_nilai">Indikator nilai : </label>
-                                                                <textarea id="indikator_nilai" type="text" name="indikator_nilai" class="ckeditor" placeholder="Indikator nilai"></textarea>
+                                                                <textarea id="indikator_nilai" type="text" name="indikator_nilai" class="form-control" placeholder="Indikator nilai"></textarea>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
                                                                 <label for="strategi_pembelajaran">Kriteria nilai : </label>
-                                                                <textarea id="strategi_pembelajaran" type="text" name="kriteria_nilai" class="ckeditor" placeholder="Kriteria nilai"></textarea>
+                                                                <textarea id="strategi_pembelajaran" type="text" name="kriteria_nilai" class="form-control" placeholder="Kriteria nilai"></textarea>
                                                             </div>
                                                         </div>
 
@@ -397,7 +397,7 @@
                                                 <td><?= $r['waktu']; ?></td>
                                                 <td><?= $r['penilaian']; ?></td>
                                                 <td>
-                                                    <a href="<?= base_url('Rps/hapusRPP/') . $r['id']; ?>" class="btn btn-danger"><i class="bi bi-trash-fill"></a>
+                                                    <a href="<?= base_url('Dosen/hapusRPP/') . $r['id']; ?>" class="tombol-hapus btn btn-danger"><i class="bi bi-trash-fill"></i></a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
@@ -421,28 +421,28 @@
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
                                                                 <label for="topik">Topik : </label>
-                                                                <textarea name="topik" id="topik" class="ckeditor" placeholder="topik"></textarea>
+                                                                <textarea name="topik" id="topik" class="form-control" placeholder="topik"></textarea>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
                                                                 <label for="km_akhir">Kemampuan akhir : </label>
-                                                                <textarea id="km_akhir" type="text" name="km_akhir" class="ckeditor" placeholder="Kemampuan akhir "></textarea>
+                                                                <textarea id="km_akhir" type="text" name="km_akhir" class="form-control" placeholder="Kemampuan akhir "></textarea>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
                                                                 <label for="indikator">Indikator : </label>
-                                                                <textarea id="indikator" type="text" name="indikator" class="ckeditor" placeholder="Indikator nilai"></textarea>
+                                                                <textarea id="indikator" type="text" name="indikator" class="form-control" placeholder="Indikator nilai"></textarea>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-6 col-12">
                                                             <div class="my-4">
                                                                 <label for="strategi_pembelajaran">strategi Pembelajaran : </label>
-                                                                <textarea id="strategi_pembelajaran" type="text" name="strategi_pembelajaran" class="ckeditor" placeholder="Strategi Pembelajaran"></textarea>
+                                                                <textarea id="strategi_pembelajaran" type="text" name="strategi_pembelajaran" class="form-control" placeholder="Strategi Pembelajaran"></textarea>
                                                             </div>
                                                         </div>
 
@@ -489,9 +489,3 @@
             </div>
         </div>
 </section>
-<script>
-    CKEDITOR.replace('gb_umum');
-    CKEDITOR.replace('capaian');
-    CKEDITOR.replace('referensi');
-    CKEDITOR.replace('prasyarat');
-</script>
