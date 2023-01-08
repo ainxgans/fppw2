@@ -188,22 +188,23 @@ class Dosen extends CI_Controller
         $this->pdf->load_view('cetak.php', $data);
         $this->load->view('cetak_rps.php', $data);
     }
-    public function hapusRPP($id)
+    public function hapusRPP($id, $id_rps)
     {
+        $id_rps = $this->uri->segment(4);
         $this->Rps_m->hapusRPP($id);
         $this->session->set_flashdata('message', 'RPP Berhasil dihapus!');
-        redirect('Dosen/listRps/' . $id);
+        redirect('Dosen/detailRps/' . $id_rps . '/#rpp');
     }
-    public function hapusTugas($id)
+    public function hapusTugas($id, $id_rps)
     {
         $this->Rps_m->hapusTugas($id);
         $this->session->set_flashdata('message', 'RPP Berhasil dihapus!');
-        redirect('Dosen/listRps/' . $id);
+        redirect('Dosen/detailRps/' . $id_rps . '/#tugas');
     }
-    public function hapusUnit_pembelajaran($id)
+    public function hapusUnit_pembelajaran($id, $id_rps)
     {
         $this->Rps_m->hapusUnit_pembelajaran($id);
         $this->session->set_flashdata('message', 'Unit Pembelajaran Berhasil dihapus!');
-        redirect('Dosen/listRps/' . $id);
+        redirect('Dosen/detailRps/' . $id_rps . '/#unit_pembelajaran');
     }
 }

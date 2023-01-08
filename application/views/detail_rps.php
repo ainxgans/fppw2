@@ -99,7 +99,7 @@
                                                     <td><?= $u['mtd_nilai'] ?></td>
                                                     <td><?= $u['bahan_ajar'] ?></td>
                                                     <td>
-                                                        <a href="<?= base_url('Dosen/hapusUnit_pembelajaran/') . $u['id']; ?>" class="btn btn-danger tombol-hapus"><i class="bi bi-trash-fill"></i></a>
+                                                        <a href="<?= base_url('Dosen/hapusUnit_pembelajaran/') . $u['id']. '/', $u['id_rps']; ?>" class="btn btn-danger tombol-hapus"><i class="bi bi-trash-fill"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
@@ -249,7 +249,7 @@
                                                     <td><?= $t['kriteria_nilai']; ?></td>
                                                     <td><?= $t['indikator_nilai']; ?></td>
                                                     <td>
-                                                        <a href="<?= base_url('Dosen/hapusTugas/') . $t['id']; ?>" class="tombol-hapus btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+                                                        <a href="<?= base_url('Dosen/hapusTugas/') . $t['id']. '/', $t['id_rps']; ?>" class="tombol-hapus btn btn-danger"><i class="bi bi-trash-fill"></i></a>
                                                     </td>
 
                                                 </tr>
@@ -397,7 +397,7 @@
                                                 <td><?= $r['waktu']; ?></td>
                                                 <td><?= $r['penilaian']; ?></td>
                                                 <td>
-                                                    <a href="<?= base_url('Dosen/hapusRPP/') . $r['id']; ?>" class="tombol-hapus btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+                                                    <a href="<?= base_url('Dosen/hapusRPP/') . $r['id'] . '/', $r['id_rps']; ?>" class="tombol-hapus btn btn-danger"><i class="bi bi-trash-fill"></i></a>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
