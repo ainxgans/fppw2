@@ -78,7 +78,7 @@
                             </li>
                         <?php endif; ?>
                         <?php if ($user['akses'] == 2) : ?>
-                            <li class="sidebar-item <?php if ($this->uri->segment(1) == "tambah") {
+                            <li class="sidebar-item <?php if ($this->uri->segment(2) == "") {
                                                         echo ' active';
                                                     } ?>">
                                 <a href="<?php echo base_url('/Dosen/') ?>" class="sidebar-link">
@@ -86,7 +86,7 @@
                                     <span>List Matkul</span>
                                 </a>
                             </li>
-                            <li class="sidebar-item <?php if ($this->uri->segment(1) == "list") {
+                            <li class="sidebar-item <?php if ($this->uri->segment(2) == "listRps") {
                                                         echo ' active';
                                                     } ?>">
                                 <a href="<?php echo base_url('/Dosen/listRps') ?>" class="sidebar-link">

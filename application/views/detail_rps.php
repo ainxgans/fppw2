@@ -64,7 +64,7 @@
             <!-- Unit unit pembelajaran awal -->
 
 
-            <div class="card">
+            <div class="card" id="unit">
                 <div class="card-content">
                     <div class="card-body">
                         <h3>Unit-unit pembelajaran</h3>
@@ -216,7 +216,7 @@
 
             <!-- Tugas dan Aktivitas -->
 
-            <div class="card">
+            <div class="card" id="tugas">
                 <div class="card-content">
                     <div class="card-body">
                         <h3>Tugas</h3>
@@ -362,7 +362,7 @@
 
             <!-- Rencana Pelaksanaan Pembelajaran -->
 
-            <div class="card">
+            <div class="card" id="rpp">
                 <div class="card-content">
                     <div class="card-body">
                         <h3>Rencana Pelaksanaan Pembelajaran</h3>

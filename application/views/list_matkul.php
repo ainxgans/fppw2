@@ -54,7 +54,7 @@
                                         <?php endif; ?>
 
                                         <?php
-                                        if ($this->db->get_where('rps', ['id_matkul' => $value['kode']])->num_rows() !== null) : ?>
+                                        if ($this->db->get_where('rps', ['id_matkul' => $value['kode']])->num_rows() != null) : ?>
                                             RPS sudah ada
                                         <?php endif; ?>
                                     <?php endif; ?>

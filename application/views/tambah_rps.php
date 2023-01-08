@@ -82,7 +82,7 @@
                                 <div class="col-md-6 col-12">
                                     <div class="form-group">
                                         <label for="referensi">Referensi</label>
-                                        <textarea name="referensi" id="referensi" class="x"></textarea>
+                                        <textarea name="referensi" id="referensi" class="form-control"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-6">

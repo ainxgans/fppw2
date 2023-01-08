@@ -92,6 +92,10 @@
         .page-break {
             page-break-after: always;
         }
+
+        .thead {
+            display: table-header-group;
+        }
     </style>
 </head>
 
