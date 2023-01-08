@@ -112,7 +112,7 @@
         }
 
         .pagenum:before {
-            content: counter(page) ' dari ' counter(pages);
+            content: counter(page);
         }
     </style>
 </head>
