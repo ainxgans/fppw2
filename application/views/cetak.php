@@ -93,19 +93,29 @@
             page-break-after: always;
         }
 
-        .thead {
-            display: table-header-group;
+        .header {
+            position: fixed;
+            height: 30px;
+            top: 0px !important;
+        }
+
+        @page {
+            margin-top: 1cm;
+        }
+
+        body {
+            margin-top: 3cm;
         }
     </style>
 </head>
 
 <body>
-    <table width="100%" class="border-none" style="margin-top: 20px;">
+    <table width="100%" class="border-none top">
         <tr>
-            <th colspan=" 4" style="font-size: 35px;" class="bawah"><b>RENCANA PEMBELAJARAN SEMEESTER(RPS)</b></th>
+            <th colspan=" 4" style="font-size: 30px;" class="bawah"><b>RENCANA PEMBELAJARAN SEMEESTER(RPS)</b></th>
         </tr>
         <tr>
-            <th style="padding: 20px;" colspan="4"><img src="<?= base_url('/assets/images/logoamikom.png') ?>" alt="" width="30%"></th>
+            <th style="padding: 20px;" colspan="4"><img src="<?= base_url('/assets/images/logoamikom.png') ?>" alt="" width="20%"></th>
         </tr>
         <tr class="bold capital">
             <td colspan="4">
@@ -150,8 +160,8 @@
         </tr>
 
     </table>
-    <h1 class="tengah">Universitas Amikom Yogyakarta<br>Yogyakarta<br>2023</h1>
-    <p class="page-break"></p>
+    <p class="tengah bold page-break">Universitas Amikom Yogyakarta<br>Yogyakarta<br>2023</p>
+    <!-- <p class="page-break"></p> -->
     <table width="100%" border="1" class="header">
         <tr>
             <td rowspan="2" class="tengah"><img src="<?= base_url('/assets/images/logoamikom.png') ?>" alt="" width="80%"></td>
