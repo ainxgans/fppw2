@@ -41,7 +41,9 @@
                                     <?php endif; ?>
                                 </td>
                                 <?php if ($user['akses'] == 2) : ?>
-                                    <td><a href="<?= base_url('/Dosen/detailRps/' . $value['id']) ?>">Isi detail</a></td>
+                                    <td><a class="btn btn-primary" href="<?= base_url('/Dosen/detailRps/' . $value['id']) ?>">Isi detail</a>
+                                        <a target="_blank" href="<?= base_url('/Rps/hapusRps/' . $value['id']) ?>" class="btn btn-danger tombol-hapus">Hapus</a>
+                                    </td>
                                 <?php endif; ?>
                             </tr>
 

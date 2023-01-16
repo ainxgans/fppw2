@@ -82,4 +82,10 @@ class Rps extends CI_Controller
         $this->pdf->load_view('cetak.php', $data);
         $this->pdf->load->view('cetak.php', $data);
     }
+    public function hapusRps($id)
+    {
+        $this->db->delete('rps', ['id' => $id]);
+        $this->session->set_flashdata('message', 'RPS berhasil dihapus!');
+        redirect('Dosen/');
+    }
 }
