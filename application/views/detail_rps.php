@@ -99,7 +99,8 @@
                                                     <td><?= $u['mtd_nilai'] ?></td>
                                                     <td><?= $u['bahan_ajar'] ?></td>
                                                     <td>
-                                                        <a href="<?= base_url('Dosen/hapusUnit_pembelajaran/') . $u['id']. '/', $u['id_rps']; ?>" class="btn btn-danger tombol-hapus"><i class="bi bi-trash-fill"></i></a>
+                                                        <a href="<?= base_url('Dosen/hapusUnit_pembelajaran/') . $u['id'] . '/', $u['id_rps']; ?>" class="btn btn-danger tombol-hapus"><i class="bi bi-trash-fill"></i></a>
+                                                        <a href="<?= base_url('Dosen/editUnit_pembelajaran/') . $u['id'] . '/', $u['id_rps']; ?>" class="btn btn-primary"><i class="bi bi-pencil-fill"></i></a>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
@@ -249,7 +250,7 @@
                                                     <td><?= $t['kriteria_nilai']; ?></td>
                                                     <td><?= $t['indikator_nilai']; ?></td>
                                                     <td>
-                                                        <a href="<?= base_url('Dosen/hapusTugas/') . $t['id']. '/', $t['id_rps']; ?>" class="tombol-hapus btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+                                                        <a href="<?= base_url('Dosen/hapusTugas/') . $t['id'] . '/', $t['id_rps']; ?>" class="tombol-hapus btn btn-danger"><i class="bi bi-trash-fill"></i></a>
                                                     </td>
 
                                                 </tr>

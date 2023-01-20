@@ -39,12 +39,11 @@
                                             Detail rps belum diisi
                                         <?php endif; ?>
                                     <?php endif; ?>
-                                </td>
-                                <?php if ($user['akses'] == 2) : ?>
-                                    <td><a class="btn btn-primary" href="<?= base_url('/Dosen/detailRps/' . $value['id']) ?>">Isi detail</a>
+                                    <?php if ($user['akses'] == 2) : ?>
+                                        <a class="btn btn-primary" href="<?= base_url('/Dosen/detailRps/' . $value['id']) ?>">Isi detail</a>
                                         <a target="_blank" href="<?= base_url('/Rps/hapusRps/' . $value['id']) ?>" class="btn btn-danger tombol-hapus">Hapus</a>
-                                    </td>
-                                <?php endif; ?>
+                                    <?php endif; ?>
+                                </td>
                             </tr>
 
                         <?php

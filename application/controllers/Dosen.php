@@ -207,4 +207,38 @@ class Dosen extends CI_Controller
         $this->session->set_flashdata('message', 'Unit Pembelajaran Berhasil dihapus!');
         redirect('Dosen/detailRps/' . $id_rps . '/#unit_pembelajaran');
     }
+    public function editUnit_pembelajaran($id, $id_rps)
+    {
+        $data['judul'] = 'Edit Unit Pembelajaran';
+        $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
+        $data['unit'] = $this->db->get_where('unit_pembelajaran', ['id' => $id])->row_array();
+        $this->form_validation->set_rules('km_akhir_p', 'Kemampuan Akhir ', 'required');
+        $this->form_validation->set_rules('indikator', 'Indikator', 'required');
+        $this->form_validation->set_rules('bhn_kajian', 'Bahan Kajian', 'required');
+        $this->form_validation->set_rules('mtd_belajar', 'Metode Belajar', 'required');
+        $this->form_validation->set_rules('waktu', 'Waktu', 'required');
+        $this->form_validation->set_rules('mtd_nilai', 'Metode Nilai', 'required');
+        $this->form_validation->set_rules('bahan_ajar', 'Bahan Ajar', 'required');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('view_header.php', $data);
+            $this->load->view('editUnit_pembelajaran.php', $data);
+            $this->load->view('view_footer.php', $data);
+        } else {
+            $table = 'unit_pembelajaran';
+            $isi = [
+                'id' => $id,
+                'id_rps' => $id_rps,
+                'km_akhir_p' => $this->input->post('km_akhir_p'),
+                'indikator' => $this->input->post('indikator'),
+                'bhn_kajian' => $this->input->post('bhn_kajian'),
+                'mtd_belajar' => $this->input->post('mtd_belajar'),
+                'waktu' => $this->input->post('waktu'),
+                'mtd_nilai' => $this->input->post('mtd_nilai'),
+                'bahan_ajar' => $this->input->post('bahan_ajar')
+            ];
+            $this->Dosen_m->edit($table, $isi, $id);
+            $this->session->set_flashdata('message', 'Unit Pembelajaran berhasil diubah!');
+            redirect('dosen/detailRps/' . $id_rps . '/#unit_pembelajaran');
+        }
+    }
 }
