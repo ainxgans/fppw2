@@ -118,6 +118,43 @@ class Dosen extends CI_Controller
             redirect('dosen/detailRps/' . $id . '#unit');
         }
     }
+
+    public function editUnit($id_rps, $id)
+    {
+        $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
+        $data['judul'] = "Edit Unit";
+        $data['rps'] = $this->db->get_where('rps', ['id' => $id_rps])->row_array();
+        $data['unit'] = $this->db->get_where('unit_pembelajaran', ['id' => $id])->result_array();
+        $this->form_validation->set_rules('id', 'id ', 'required');
+        $this->form_validation->set_rules('km_akhir_p', 'Kemampuan Akhir ', 'required');
+        $this->form_validation->set_rules('indikator', 'Indikator', 'required');
+        $this->form_validation->set_rules('bhn_kajian', 'Bahan Kajian', 'required');
+        $this->form_validation->set_rules('mtd_belajar', 'Metode Belajar', 'required');
+        $this->form_validation->set_rules('waktu', 'Waktu', 'required');
+        $this->form_validation->set_rules('mtd_nilai', 'Metode Nilai', 'required');
+        $this->form_validation->set_rules('bahan_ajar', 'Bahan Ajar', 'required');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('view_header.php', $data);
+            $this->load->view('edit_unit.php', $data);
+            $this->load->view('view_footer.php', $data);
+        } else {
+            $id = $this->input->post('id');
+            $table = 'unit_pembelajaran';
+            $data = [
+                'id' => htmlspecialchars($this->input->post('id', true)),
+                'km_akhir_p' => htmlspecialchars($this->input->post('km_akhir_p', true)),
+                'indikator' => htmlspecialchars($this->input->post('indikator', true)),
+                'bhn_kajian' => htmlspecialchars($this->input->post('bhn_kajian', true)),
+                'mtd_belajar' => htmlspecialchars($this->input->post('mtd_belajar', true)),
+                'waktu' => htmlspecialchars($this->input->post('waktu', true)),
+                'mtd_nilai' => htmlspecialchars($this->input->post('mtd_nilai', true)),
+                'bahan_ajar' => htmlspecialchars($this->input->post('bahan_ajar', true)),
+            ];
+            $this->Dosen_m->edit($table, $data, $id);
+            $this->session->set_flashdata('message', 'Unit berhasil diubah!');
+            redirect('dosen/detailRps/' . $id_rps . '#unit');
+        }
+    }
     public function tambahTugas($id)
     {
         $data['rps'] = $this->db->get_where('rps', ['id' => $id])->row_array();
@@ -145,9 +182,43 @@ class Dosen extends CI_Controller
             redirect('dosen/detailRps/' . $id . '/#tugas');
         }
     }
+
+    public function editTugas($id_rps, $id)
+    {
+        $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
+        $data['judul'] = "Edit Unit";
+        $data['rps'] = $this->db->get_where('rps', ['id' => $id_rps])->row_array();
+        $data['tugas'] = $this->db->get_where('tugas', ['id' => $id])->result_array();
+        $this->form_validation->set_rules('tugas', 'Tugas', 'required');
+        $this->form_validation->set_rules('km_akhir', 'Kemampuan Akhir', 'required');
+        $this->form_validation->set_rules('waktu', 'Waktu', 'required');
+        $this->form_validation->set_rules('bobot', 'Bobot', 'required');
+        $this->form_validation->set_rules('kriteria_nilai', 'Kriteria Nilai', 'required');
+        $this->form_validation->set_rules('indikator_nilai', 'Indikator Nilai', 'required');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('view_header.php', $data);
+            $this->load->view('edit_tugas.php', $data);
+            $this->load->view('view_footer.php', $data);
+        } else {
+            $id = $this->input->post('id');
+            $table = 'tugas';
+            $data = [
+                'id' => $this->input->post('id'),
+                'tugas' => $this->input->post('tugas'),
+                'km_akhir' => $this->input->post('km_akhir'),
+                'waktu' => $this->input->post('waktu'),
+                'bobot' => $this->input->post('bobot'),
+                'kriteria_nilai' => $this->input->post('kriteria_nilai'),
+                'indikator_nilai' => $this->input->post('indikator_nilai')
+            ];
+            $this->Dosen_m->edit($table, $data, $id);
+            $this->session->set_flashdata('message', 'Tugas berhasil diubah!');
+            redirect('dosen/detailRps/' . $id_rps . '#tugas');
+        }
+    }
+
     public function tambahRpp($id)
     {
-
         $data['rps'] = $this->db->get_where('rps', ['id' => $id])->row_array();
         $this->form_validation->set_rules('minggu', 'Minggu', 'required');
         $this->form_validation->set_rules('km_akhir', 'Kemampuan Akhir yang Diharapkan', 'required');
@@ -174,6 +245,40 @@ class Dosen extends CI_Controller
             redirect('dosen/detailRps/' . $id . '/#rpp');
         }
     }
+    public function editRpp($id_rps, $id)
+    {
+        $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
+        $data['judul'] = "Edit RPP";
+        $data['rps'] = $this->db->get_where('rps', ['id' => $id_rps])->row_array();
+        $data['rpp'] = $this->db->get_where('rpp', ['id' => $id])->result_array();
+        $this->form_validation->set_rules('minggu', 'Minggu', 'required');
+        $this->form_validation->set_rules('km_akhir', 'Kemampuan Akhir yang Diharapkan', 'required');
+        $this->form_validation->set_rules('indikator', 'Indikator', 'required');
+        $this->form_validation->set_rules('topik', 'Strategi Pembelajaran', 'required');
+        $this->form_validation->set_rules('waktu', 'Waktu', 'required');
+        $this->form_validation->set_rules('penilaian', 'Penilaian', 'required');
+        if ($this->form_validation->run() == false) {
+            $this->load->view('view_header.php', $data);
+            $this->load->view('edit_rpp.php', $data);
+            $this->load->view('view_footer.php', $data);
+        } else {
+            $id = $this->input->post('id');
+            $table = 'rpp';
+            $data = [
+                'id' => $this->input->post('id'),
+                'minggu' => $this->input->post('minggu'),
+                'km_akhir' => $this->input->post('km_akhir'),
+                'indikator' => $this->input->post('indikator'),
+                'topik' => $this->input->post('topik'),
+                'strategi_pembelajaran' => $this->input->post('strategi_pembelajaran'),
+                'waktu' => $this->input->post('waktu'),
+                'penilaian' => $this->input->post('penilaian')
+            ];
+            $this->Dosen_m->edit($table, $data, $id);
+            $this->session->set_flashdata('message', 'Rencana Pelaksanaan Pembelajaran berhasil diubah!');
+            redirect('dosen/detailRps/' . $id_rps . '/#rpp');
+        }
+    }
     public function cetakRps($id)
     {
         $this->load->library('pdf');
@@ -198,7 +303,7 @@ class Dosen extends CI_Controller
     public function hapusTugas($id, $id_rps)
     {
         $this->Rps_m->hapusTugas($id);
-        $this->session->set_flashdata('message', 'RPP Berhasil dihapus!');
+        $this->session->set_flashdata('message', 'Tugas Berhasil dihapus!');
         redirect('Dosen/detailRps/' . $id_rps . '/#tugas');
     }
     public function hapusUnit_pembelajaran($id, $id_rps)
@@ -206,39 +311,5 @@ class Dosen extends CI_Controller
         $this->Rps_m->hapusUnit_pembelajaran($id);
         $this->session->set_flashdata('message', 'Unit Pembelajaran Berhasil dihapus!');
         redirect('Dosen/detailRps/' . $id_rps . '/#unit_pembelajaran');
-    }
-    public function editUnit_pembelajaran($id, $id_rps)
-    {
-        $data['judul'] = 'Edit Unit Pembelajaran';
-        $data['user'] = $this->db->get_where('users', ['id' => $this->session->userdata('id')])->row_array();
-        $data['unit'] = $this->db->get_where('unit_pembelajaran', ['id' => $id])->row_array();
-        $this->form_validation->set_rules('km_akhir_p', 'Kemampuan Akhir ', 'required');
-        $this->form_validation->set_rules('indikator', 'Indikator', 'required');
-        $this->form_validation->set_rules('bhn_kajian', 'Bahan Kajian', 'required');
-        $this->form_validation->set_rules('mtd_belajar', 'Metode Belajar', 'required');
-        $this->form_validation->set_rules('waktu', 'Waktu', 'required');
-        $this->form_validation->set_rules('mtd_nilai', 'Metode Nilai', 'required');
-        $this->form_validation->set_rules('bahan_ajar', 'Bahan Ajar', 'required');
-        if ($this->form_validation->run() == false) {
-            $this->load->view('view_header.php', $data);
-            $this->load->view('editUnit_pembelajaran.php', $data);
-            $this->load->view('view_footer.php', $data);
-        } else {
-            $table = 'unit_pembelajaran';
-            $isi = [
-                'id' => $id,
-                'id_rps' => $id_rps,
-                'km_akhir_p' => $this->input->post('km_akhir_p'),
-                'indikator' => $this->input->post('indikator'),
-                'bhn_kajian' => $this->input->post('bhn_kajian'),
-                'mtd_belajar' => $this->input->post('mtd_belajar'),
-                'waktu' => $this->input->post('waktu'),
-                'mtd_nilai' => $this->input->post('mtd_nilai'),
-                'bahan_ajar' => $this->input->post('bahan_ajar')
-            ];
-            $this->Dosen_m->edit($table, $isi, $id);
-            $this->session->set_flashdata('message', 'Unit Pembelajaran berhasil diubah!');
-            redirect('dosen/detailRps/' . $id_rps . '/#unit_pembelajaran');
-        }
     }
 }

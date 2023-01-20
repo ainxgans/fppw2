@@ -11,9 +11,10 @@ class Dosen_m extends CI_Model
     {
         $this->db->insert('tugas', $data);
     }
-    public function edit($table, $isi, $id)
+
+    public function edit($table, $data, $id)
     {
-        $this->db->where($id);
-        $this->db->update($table, $isi);
+        $this->db->where('id', $id);
+        $this->db->update($table, $data);
     }
 }

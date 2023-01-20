@@ -83,7 +83,7 @@
                                                 <th>Waktu</th>
                                                 <th>Metode Penilaian</th>
                                                 <th>Bahan Ajar</th>
-                                                <th>Opsi</th>
+                                                <th class="text-center">Opsi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -99,18 +99,21 @@
                                                     <td><?= $u['mtd_nilai'] ?></td>
                                                     <td><?= $u['bahan_ajar'] ?></td>
                                                     <td>
-                                                        <a href="<?= base_url('Dosen/hapusUnit_pembelajaran/') . $u['id'] . '/', $u['id_rps']; ?>" class="btn btn-danger tombol-hapus"><i class="bi bi-trash-fill"></i></a>
-                                                        <a href="<?= base_url('Dosen/editUnit_pembelajaran/') . $u['id'] . '/', $u['id_rps']; ?>" class="btn btn-primary"><i class="bi bi-pencil-fill"></i></a>
+                                                        <div class="btn-group">
+                                                            <a class="btn btn-primary" href="<?= base_url("Dosen/editUnit/") . $rps['id'] . '/' . $u['id'] ?>"><i class=" bi bi-pencil-fill"></i></a>
+                                                            <a href=" <?= base_url('Dosen/hapusUnit_pembelajaran/') . $u['id'] . '/', $u['id_rps']; ?>" class="btn btn-danger tombol-hapus"><i class="bi bi-trash-fill"></i></a>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
-                                <button type="button" class="btn btn-outline-primary block float-end" data-bs-toggle="modal" data-bs-target="#default">
+                                <button type="button" class="btn btn-outline-primary block float-end" data-bs-toggle="modal" data-bs-target="#rpp">
                                     Tambah Unit Pembelajaran
                                 </button>
-                                <div class="modal modal-xl fade text-left" id="default" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+
+                                <div class="modal modal-xl fade text-left" id="rpp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-scrollable" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -185,6 +188,8 @@
                                         </div>
                                     </div>
                                 </div>
+
+
                             </div>
                         </div>
                     </div>
@@ -235,7 +240,7 @@
                                                 <th>Bobot</th>
                                                 <th>Kriteria Nilai</th>
                                                 <th>Indikator Nilai</th>
-                                                <th>Opsi</th>
+                                                <th class="text-center">Opsi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -250,7 +255,10 @@
                                                     <td><?= $t['kriteria_nilai']; ?></td>
                                                     <td><?= $t['indikator_nilai']; ?></td>
                                                     <td>
-                                                        <a href="<?= base_url('Dosen/hapusTugas/') . $t['id'] . '/', $t['id_rps']; ?>" class="tombol-hapus btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+                                                        <div class="btn-group">
+                                                            <a class="btn btn-primary" href="<?= base_url("Dosen/editTugas/") . $rps['id'] . '/' . $t['id'] ?>"><i class=" bi bi-pencil-fill"></i></a>
+                                                            <a href="<?= base_url('Dosen/hapusTugas/') . $t['id'] . '/', $t['id_rps']; ?>" class="tombol-hapus btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+                                                        </div>
                                                     </td>
 
                                                 </tr>
@@ -382,7 +390,7 @@
                                                 <th>Strategi Pembelajaran</th>
                                                 <th>Waktu</th>
                                                 <th>Penilaian</th>
-                                                <th>Opsi</th>
+                                                <th class="text-center">Opsi</th>
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
@@ -398,7 +406,10 @@
                                                 <td><?= $r['waktu']; ?></td>
                                                 <td><?= $r['penilaian']; ?></td>
                                                 <td>
-                                                    <a href="<?= base_url('Dosen/hapusRPP/') . $r['id'] . '/', $r['id_rps']; ?>" class="tombol-hapus btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+                                                    <div class="btn-group">
+                                                        <a class="btn btn-primary" href="<?= base_url("Dosen/editRpp/") . $rps['id'] . '/' . $r['id'] ?>"><i class=" bi bi-pencil-fill"></i></a>
+                                                        <a href="<?= base_url('Dosen/hapusRPP/') . $r['id'] . '/', $r['id_rps']; ?>" class="tombol-hapus btn btn-danger"><i class="bi bi-trash-fill"></i></a>
+                                                    </div>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
