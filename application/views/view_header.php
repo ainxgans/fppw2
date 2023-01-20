@@ -7,10 +7,9 @@
     <title><?= $judul ?> | RPS</title>
 
     <link rel="stylesheet" href="<?php echo base_url('/assets/') ?>css/main/app.css" />
-    <link rel="stylesheet" href="<?php echo base_url('/assets/') ?>/css/main/app-dark.css" />
-
-    <link rel="stylesheet" href="<?php echo base_url('/assets/') ?>extensions/simple-datatables/style.css" />
+    <link rel="stylesheet" href="<?php echo base_url('/assets/') ?>css/main/app-dark.css" />
     <link rel="stylesheet" href="<?php echo base_url('/assets/') ?>css/pages/simple-datatables.css" />
+    <link rel="stylesheet" href="<?php echo base_url('/assets/') ?>extensions/simple-datatables/style.css" />
 
 </head>
 
