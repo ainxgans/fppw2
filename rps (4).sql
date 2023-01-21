@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 11, 2023 at 06:11 PM
+-- Generation Time: Jan 21, 2023 at 05:55 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -44,7 +44,7 @@ INSERT INTO `matkul` (`kode`, `id_dosen`, `semester`, `sks`, `penilaian`, `nm_ma
 ('2', 123, '3', '4', '&lt;p&gt;Klasifikasi Penilaian&lt;/p&gt;&lt;p&gt;≥ 80 % ( A )&lt;/p&gt;&lt;p&gt;≥ 60 &amp; &lt;80&gt;&lt;p&gt;≥ 40 &amp; &lt; 60&gt;&lt;p&gt;≥ 20 &amp; &lt; 40&gt;&lt;p&gt;&lt; 21&gt;', 'Metodologi Penelitian'),
 ('21213', 44836870, '1', '2', '<p>wad</p>', 'bahasa jawa'),
 ('4', 123, '3', '2', '&lt;p&gt;Klasifikasi Nilai&lt;/p&gt;&lt;p&gt;&gt; 80 % ( A )&lt;/p&gt;&lt;p&gt;≥ 60 &amp; &lt; 80&gt;&lt;/p&gt;&lt;p&gt;≥ 40 &amp; &lt; 60&gt;&lt;/p&gt;&lt;p&gt;≥ 20 &amp; &lt; 40&gt;&lt;/p&gt;&lt;p&gt;&lt; 20&gt;&lt;/p&gt;', 'Multimedia'),
-('DT-081', 190302457, '3', '2', 'Presensi 10%\r\nUjian Mid Semester 30 %\r\nUjian Akhir Semester 40 %\r\nTugas 20 %', 'MULTIMEDIA'),
+('DT-082', 8787811, '3', '2', 'Presensi 10%\r\nUjian Mid Semester 30 %\r\nUjian Akhir Semester 40 %\r\nTugas 20 %', 'E-COMMERCE'),
 ('DT-105', 9092154, '3', '4', '&lt;p&gt;Klasifikasi Nilai&lt;/p&gt;&lt;p&gt;&gt; 80 % ( A )&lt;/p&gt;&lt;p&gt;≥ 60 &amp; &lt; 80&gt;&lt;p&gt;≥ 40 &amp; &lt; 60&gt;&lt;p&gt;≥ 20 &amp; 40 ( D )&lt;/p&gt;&lt;p&gt;&lt; 20&gt;', 'Pengolahan Basis Data'),
 ('DT-106', 8787811, '3', '4', ' Presensi 20 %\r\n Ujian Mid Semester 30 %\r\n Ujian Akhir Semester 30 %\r\n Tugas 20 %', 'E-COMMERCE'),
 ('DT-168', 8787811, '5', '4', 'Ujian Tengah Semester 25 %\r\n Ujian Akhir Semester 30 %\r\nResponsi 25 %\r\nTugas/Kuis 20 %', 'Proyek Pemrograman Seluler'),
@@ -70,6 +70,15 @@ CREATE TABLE `rpp` (
   `waktu` int(4) NOT NULL,
   `penilaian` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `rpp`
+--
+
+INSERT INTO `rpp` (`id`, `id_rps`, `minggu`, `km_akhir`, `indikator`, `topik`, `strategi_pembelajaran`, `waktu`, `penilaian`) VALUES
+(32, 22, 20, 'p', 'p', 'awikwok', 'p', 120, 'p'),
+(33, 23, 589, 'nenenennenene', 'omomomomommo', 'bbbwbwbwbwbwb', 'btbtbtbtbtb', 412, 'baik'),
+(34, 24, 190302481, '190302481	', '190302481	', '190302481	', '190302481	', 35, '190302481	');
 
 -- --------------------------------------------------------
 
@@ -98,7 +107,10 @@ INSERT INTO `rps` (`id`, `id_matkul`, `id_dosen`, `nomor_rps`, `tgl_berlaku`, `t
 (10, 'DT090', 190302282, '090', 2023, '2023-01-07', '<ul><li>Matakuliah bahasa Indonesia memuat bahan ajar untuk meningkatkan kemampuan siswa dalam menggunakan bahasa Indonesia yang baik dan benar, baik secara lisan dan tulisan terutama dalam menyusun paragraf, esai, menulis akademik, serta menyajikannya secara akurat dan santun.</li></ul>', '<ul><li>Membuat paragraf akademik dengan ejaan, diksi dan kalimat efektif</li><li>Menyusun karangan ilmiah sesuai konvensi naskah ilmiah yang tepat</li><li>Menampilkan keterampilan berbicara sesuai konteks</li></ul>', '<p>Bagian ini menjelaskan prasyarat, bila ada, untuk mengikuti mata kuliah ini. Dosen bisa juga mencantumkan pengetahuan atau keterampilan yang dapat membantu proses belajar dan diasumsikan sudah dikuasai oleh calon peserta kuliah (tidak diajarkan di mata kuliah ini), meski hal itu bukan prasyarat formal.</p>', '<ol><li>1. Arifin, E.Z. Cermat Berbahasa Indonesia untuk Perguruan Tinggi. Jakarta: Akademika Pressindo, 2008.</li><li>&nbsp;Dalman. Keterampilan Menulis. Jakarta: Raja Grafindo Persada, 2014.</li><li>&nbsp;Depdiknas. Ejaan Yang Disempurnakan. Jakarta: Gramedia, 2008.</li><li>&nbsp;Hs. Widjono. Bahasa Indonesia Mata Kuliah Pengembangan Kepribadian di Perguruan Tinggi. Jakarta: PT. Grasindo, 2008.</li><li>Suhertuti, dkk. Bahasa Indonesia sebagai Sarana Komunikasi Ilmiah. Bogor: Irham Publishing, 2011</li></ol>'),
 (13, '2', 1234567890, '75875C', 2023, '2023-01-07', 'Pengenalan konsep-konsep dasar struktur data, termasuk array, linked list, stack, queue, dan tree.\r\nPenggunaan struktur data dalam pemrograman: implementasi dan penerapan struktur data dalam bahasa pemrograman seperti C, C++, atau Java.\r\nAlgoritma-algoritma yang berkaitan dengan struktur data, termasuk pencarian dan sorting, serta analisis kompleksitas waktu dan ruang.\r\nAplikasi struktur data dalam masalah-masalah nyata, seperti pengelolaan data pada database, optimasi rute pada sistem transportasi, dan pemecahan masalah lainnya.\r\nPraktikum laboratorium, di mana mahasiswa akan mempraktikkan konsep yang dipelajari melalui pembuatan program sederhana menggunakan struktur data yang telah diajarkan.', 'Pengenalan konsep-konsep dasar struktur data, termasuk array, linked list, stack, queue, dan tree.\r\nPenggunaan struktur data dalam pemrograman: implementasi dan penerapan struktur data dalam bahasa pemrograman seperti C, C++, atau Java.\r\nAlgoritma-algoritma yang berkaitan dengan struktur data, termasuk pencarian dan sorting, serta analisis kompleksitas waktu dan ruang.\r\nAplikasi struktur data dalam masalah-masalah nyata, seperti pengelolaan data pada database, optimasi rute pada sistem transportasi, dan pemecahan masalah lainnya.\r\nPraktikum laboratorium, di mana mahasiswa akan mempraktikkan konsep yang dipelajari melalui pembuatan program sederhana menggunakan struktur data yang telah diajarkan.', 'Pengenalan konsep-konsep dasar struktur data, termasuk array, linked list, stack, queue, dan tree.\r\nPenggunaan struktur data dalam pemrograman: implementasi dan penerapan struktur data dalam bahasa pemrograman seperti C, C++, atau Java.\r\nAlgoritma-algoritma yang berkaitan dengan struktur data, termasuk pencarian dan sorting, serta analisis kompleksitas waktu dan ruang.\r\nAplikasi struktur data dalam masalah-masalah nyata, seperti pengelolaan data pada database, optimasi rute pada sistem transportasi, dan pemecahan masalah lainnya.\r\nPraktikum laboratorium, di mana mahasiswa akan mempraktikkan konsep yang dipelajari melalui pembuatan program sederhana menggunakan struktur data yang telah diajarkan.', 'Pengenalan konsep-konsep dasar struktur data, termasuk array, linked list, stack, queue, dan tree.\r\nPenggunaan struktur data dalam pemrograman: implementasi dan penerapan struktur data dalam bahasa pemrograman seperti C, C++, atau Java.\r\nAlgoritma-algoritma yang berkaitan dengan struktur data, termasuk pencarian dan sorting, serta analisis kompleksitas waktu dan ruang.\r\nAplikasi struktur data dalam masalah-masalah nyata, seperti pengelolaan data pada database, optimasi rute pada sistem transportasi, dan pemecahan masalah lainnya.\r\nPraktikum laboratorium, di mana mahasiswa akan mempraktikkan konsep yang dipelajari melalui pembuatan program sederhana menggunakan struktur data yang telah diajarkan.'),
 (14, 'DT126', 190302421, '98721', 2023, '2023-01-08', 'Mahasiswa dapat menjelaskan konsep-konsep dasar struktur data, termasuk array, linked list, stack, queue, dan tree, serta menjelaskan kelebihan dan kekurangan masing-masing struktur data tersebut.\r\nMahasiswa dapat menimplementasikan struktur data yang telah diajarkan dalam bahasa pemrograman tertentu, seperti C, C++, atau Java, serta menjelaskan bagaimana implementasi tersebut bekerja.\r\nMahasiswa dapat menjelaskan dan menerapkan algoritma-algoritma yang berkaitan dengan struktur data, termasuk pencarian dan sorting, serta menghitung kompleksitas waktu dan ruang dari algoritma tersebut.\r\nMahasiswa dapat mengaplikasikan struktur data yang telah dipelajari dalam memecahkan masalah-masalah nyata yang terkait dengan struktur data.\r\nMahasiswa dapat bekerja secara mandiri dalam menyelesaikan tugas-tugas yang berkaitan dengan struktur data, termasuk tugas-tugas laboratorium dan proyek akhir.', 'Mahasiswa dapat menjelaskan konsep-konsep dasar struktur data, termasuk array, linked list, stack, queue, dan tree, serta menjelaskan kelebihan dan kekurangan masing-masing struktur data tersebut.\r\nMahasiswa dapat menimplementasikan struktur data yang telah diajarkan dalam bahasa pemrograman tertentu, seperti C, C++, atau Java, serta menjelaskan bagaimana implementasi tersebut bekerja.\r\nMahasiswa dapat menjelaskan dan menerapkan algoritma-algoritma yang berkaitan dengan struktur data, termasuk pencarian dan sorting, serta menghitung kompleksitas waktu dan ruang dari algoritma tersebut.\r\nMahasiswa dapat mengaplikasikan struktur data yang telah dipelajari dalam memecahkan masalah-masalah nyata yang terkait dengan struktur data.\r\nMahasiswa dapat bekerja secara mandiri dalam menyelesaikan tugas-tugas yang berkaitan dengan struktur data, termasuk tugas-tugas laboratorium dan proyek akhir.', 'Mahasiswa dapat menjelaskan konsep-konsep dasar struktur data, termasuk array, linked list, stack, queue, dan tree, serta menjelaskan kelebihan dan kekurangan masing-masing struktur data tersebut.\r\nMahasiswa dapat menimplementasikan struktur data yang telah diajarkan dalam bahasa pemrograman tertentu, seperti C, C++, atau Java, serta menjelaskan bagaimana implementasi tersebut bekerja.\r\nMahasiswa dapat menjelaskan dan menerapkan algoritma-algoritma yang berkaitan dengan struktur data, termasuk pencarian dan sorting, serta menghitung kompleksitas waktu dan ruang dari algoritma tersebut.\r\nMahasiswa dapat mengaplikasikan struktur data yang telah dipelajari dalam memecahkan masalah-masalah nyata yang terkait dengan struktur data.\r\nMahasiswa dapat bekerja secara mandiri dalam menyelesaikan tugas-tugas yang berkaitan dengan struktur data, termasuk tugas-tugas laboratorium dan proyek akhir.', 'Mahasiswa dapat menjelaskan konsep-konsep dasar struktur data, termasuk array, linked list, stack, queue, dan tree, serta menjelaskan kelebihan dan kekurangan masing-masing struktur data tersebut.\r\nMahasiswa dapat menimplementasikan struktur data yang telah diajarkan dalam bahasa pemrograman tertentu, seperti C, C++, atau Java, serta menjelaskan bagaimana implementasi tersebut bekerja.\r\nMahasiswa dapat menjelaskan dan menerapkan algoritma-algoritma yang berkaitan dengan struktur data, termasuk pencarian dan sorting, serta menghitung kompleksitas waktu dan ruang dari algoritma tersebut.\r\nMahasiswa dapat mengaplikasikan struktur data yang telah dipelajari dalam memecahkan masalah-masalah nyata yang terkait dengan struktur data.\r\nMahasiswa dapat bekerja secara mandiri dalam menyelesaikan tugas-tugas yang berkaitan dengan struktur data, termasuk tugas-tugas laboratorium dan proyek akhir.'),
-(17, 'DT-170', 190302315, 'DT152', 2023, '2023-01-11', 'Perkuliahan diselenggarakan sebanyak 28 kali pertemuan dalam satu semester, yang terdiri dari 14 kali pertemuan teori dan 14 pertemuan praktikum. Ditambah 2\r\nkali pertemuan yang dikhususkan untuk pelaksanaan UTS (Ujian Tengah Semester) dan UAS (Ujian Akhir Semester).\r\n• Setelah mengikuti mata kuliah ini mahasiswa diharapkan dapat memahami konsep struktur data dan Mampu membuat program dengan menggunakan bahasa\r\npemrograman yang ditentukan yaitu python.\r\n', 'Perkuliahan diselenggarakan sebanyak 28 kali pertemuan dalam satu semester, yang terdiri dari 14 kali pertemuan teori dan 14 pertemuan praktikum. Ditambah 2\r\nkali pertemuan yang dikhususkan untuk pelaksanaan UTS (Ujian Tengah Semester) dan UAS (Ujian Akhir Semester).\r\n• Setelah mengikuti mata kuliah ini mahasiswa diharapkan mampu menguasai hard skills berupa konsep dasar Struktur Data, serta soft skill berupa penyelesaian\r\nberbagai masalah dengan menggunakan konsep logika dan algoritma yang diimplementasikan dengan Python\r\n• Matakuliah ini terbagi menjadi teori yang diikuti dengan praktikum. Melalui Matakuliah ini mahasiswa mampu untuk memahami konsep, teknik dan manipulasi\r\npengorganisasian sebuah data yang diimplementasikan kedalam sebuah bahasa pemrograman seperti array, string, matriks, record. Selain itu matakuliah ini juga\r\nmemberi pemahaman tentang list linear, multi link list, non linier link list, jenis-jenis pengurutan, pencarian, stack, queue, graf, dan tree.\r\n', '• Mahasiswa telah memahami logika dalam pemrograman\r\n• Telah mengambil matakuliah algoritma dan pemrograman', 'Ref.1 : Al Sweigart; Automate The Boring stuff With Python; No Starch, San Fransisco, 2015');
+(17, 'DT-170', 190302315, 'DT152', 2023, '2023-01-11', 'Perkuliahan diselenggarakan sebanyak 28 kali pertemuan dalam satu semester, yang terdiri dari 14 kali pertemuan teori dan 14 pertemuan praktikum. Ditambah 2\r\nkali pertemuan yang dikhususkan untuk pelaksanaan UTS (Ujian Tengah Semester) dan UAS (Ujian Akhir Semester).\r\n• Setelah mengikuti mata kuliah ini mahasiswa diharapkan dapat memahami konsep struktur data dan Mampu membuat program dengan menggunakan bahasa\r\npemrograman yang ditentukan yaitu python.\r\n', 'Perkuliahan diselenggarakan sebanyak 28 kali pertemuan dalam satu semester, yang terdiri dari 14 kali pertemuan teori dan 14 pertemuan praktikum. Ditambah 2\r\nkali pertemuan yang dikhususkan untuk pelaksanaan UTS (Ujian Tengah Semester) dan UAS (Ujian Akhir Semester).\r\n• Setelah mengikuti mata kuliah ini mahasiswa diharapkan mampu menguasai hard skills berupa konsep dasar Struktur Data, serta soft skill berupa penyelesaian\r\nberbagai masalah dengan menggunakan konsep logika dan algoritma yang diimplementasikan dengan Python\r\n• Matakuliah ini terbagi menjadi teori yang diikuti dengan praktikum. Melalui Matakuliah ini mahasiswa mampu untuk memahami konsep, teknik dan manipulasi\r\npengorganisasian sebuah data yang diimplementasikan kedalam sebuah bahasa pemrograman seperti array, string, matriks, record. Selain itu matakuliah ini juga\r\nmemberi pemahaman tentang list linear, multi link list, non linier link list, jenis-jenis pengurutan, pencarian, stack, queue, graf, dan tree.\r\n', '• Mahasiswa telah memahami logika dalam pemrograman\r\n• Telah mengambil matakuliah algoritma dan pemrograman', 'Ref.1 : Al Sweigart; Automate The Boring stuff With Python; No Starch, San Fransisco, 2015'),
+(22, 'DT-168', 8787811, '9073901', 2023, '2023-01-20', 'lkadjlakj', 'kljlkdjlka', 'lkjdlkajdlk', 'lkjalkjdlka'),
+(23, 'DT-105', 9092154, '46578', 2023, '2023-01-20', 'aku cinta padamu', 'mungkin disuatu saat', 'aku juga mencintaimu', 'gaktau'),
+(24, 'DT095', 190302481, '6890', 2023, '2023-01-20', 'blaa bleee', 'boleh boleh', 'wkwkwkkwkw', 'sbaiiiii45');
 
 -- --------------------------------------------------------
 
@@ -117,6 +129,16 @@ CREATE TABLE `tugas` (
   `indikator_nilai` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `tugas`
+--
+
+INSERT INTO `tugas` (`id`, `id_rps`, `tugas`, `km_akhir`, `waktu`, `bobot`, `kriteria_nilai`, `indikator_nilai`) VALUES
+(28, 22, 'bi bi-trash-fill', 'bi bi-trash-fill', 120, 'bi bi-trash-fill', 'bi bi-trash-fill', 'bi bi-trash-fill'),
+(29, 22, 'p', 'p', 120, 'p', 'p', 'p'),
+(30, 23, 'alalalal', 'opkitn hgksjbds', 123, '3485', 'ababnfufu', 'ababababa'),
+(31, 24, '12sdosdjb', '190302481	', 190302481, '190302481	', '190302481	', '190302481	');
+
 -- --------------------------------------------------------
 
 --
@@ -134,6 +156,15 @@ CREATE TABLE `unit_pembelajaran` (
   `mtd_nilai` varchar(50) NOT NULL,
   `bahan_ajar` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `unit_pembelajaran`
+--
+
+INSERT INTO `unit_pembelajaran` (`id`, `id_rps`, `km_akhir_p`, `indikator`, `bhn_kajian`, `mtd_belajar`, `waktu`, `mtd_nilai`, `bahan_ajar`) VALUES
+(37, 22, 'pp', 'kjsakj', 'kjsakj', 'kjsakj', 120, 'kjsakj', 'kjsakj'),
+(38, 23, 'wkwkwkwk', 'fbfnghtiuuu', 'xixiixix', 'lallalalala', 345, '456455', 'lolllllllll'),
+(39, 24, '190302481	', '190302481	', '190302481	190302481	', '190302481	', 12, '190302481	', '190302481	');
 
 -- --------------------------------------------------------
 
@@ -224,25 +255,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `rpp`
 --
 ALTER TABLE `rpp`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `rps`
 --
 ALTER TABLE `rps`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tugas`
 --
 ALTER TABLE `tugas`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `unit_pembelajaran`
 --
 ALTER TABLE `unit_pembelajaran`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Constraints for dumped tables
