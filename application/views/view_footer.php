@@ -7,7 +7,7 @@
             <p>
                 Created with
                 <span class="text-danger"><i class="bi bi-heart"></i></span> by
-                <a href="#">Maulana</a>
+                <a href="#">D3TI01</a>
             </p>
         </div>
     </div>
