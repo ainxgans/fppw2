@@ -1,0 +1,68 @@
+Maulana (21.01.4620)
+Ahmad Rizaldi (21.01.4608)
+Alfi Einsten Rahakbauw (21.01.464)
+Irfiyanda Abidin (21.01.4623)
+Muh Evan Kusyanto (21.01.4604)
+
+
+
+
+INFO
+
+Di sistem operasi windows harus mengkatifkan extension GD pada PHP agar bisa Cetak RPS
+
+
+
+
+ ADMIN
+
+- Tambah dosen
+
+- Tambah mata kuliah
+
+- Edit dosen
+
+- Edit mata kuliah
+
+- Hapus dosen
+
+- Hapus mata kuliah
+
+- Edit mahasiswa
+
+LOGIN :
+
+- Username : 2131
+
+- Password : admin
+
+
+
+
+
+DOSEN
+
+- Tambah RPS
+
+- Edit RPS
+
+- Hapus RPS
+
+LOGIN :
+
+- Username : NIK
+
+- Password : amikom123
+
+
+
+
+MAHASISWA
+
+- Lihat RPS
+
+- Download RPS
+
+LOGIN :
+
+bisa dibuat baru melalui fitur daftar
