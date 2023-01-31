@@ -412,6 +412,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
+
                                         <?php endforeach; ?>
                                         </tbody>
                                     </table>

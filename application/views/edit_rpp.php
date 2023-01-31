@@ -28,7 +28,6 @@
                                     <textarea id="indikator" type="text" name="indikator" class="form-control" placeholder="Indikator nilai"><?= $r['indikator'] ?></textarea>
                                 </div>
                             </div>
-
                             <div class="col-md-6 col-12">
                                 <div class="my-4">
                                     <label for="strategi_pembelajaran">strategi Pembelajaran : </label>
